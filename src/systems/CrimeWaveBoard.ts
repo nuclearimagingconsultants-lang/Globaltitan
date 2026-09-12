@@ -133,6 +133,7 @@ export class CrimeWaveBoard {
 
   /** HUD mission line when a Crime Wave job is active. */
   missionLine(save: CrimeWaveSaveSlice): string | null {
+    const objIdx = this.objectiveIndex; void objIdx;
     if (!save.activeQuestId?.startsWith("cw-")) return null;
     const def = crimeWaveById(save.activeQuestId);
     if (!def) return null;

@@ -8,6 +8,8 @@ import { APPROACH, type ApproachState, type PackRole } from "../data/approach";
 import { SMASH } from "../data/smashEconomy";
 import type { EnemyDirector } from "./EnemyDirector";
 
+
+
 export type Enemy = {
   mesh: THREE.Group;
   hp: number;
@@ -28,6 +30,42 @@ export type Enemy = {
   backoff: number;
   glow: THREE.Mesh;
 };
+
+function makeNameSprite(kind: Enemy["kind"]): THREE.Sprite {
+  const labels: Record<Enemy["kind"], string> = {
+    thug: "THUG",
+    armored: "ARMORED",
+    runner: "RUNNER",
+    shooter: "SHOOTER",
+    civilian: "CIV",
+  };
+  const tint: Record<Enemy["kind"], string> = {
+    thug: "#ff8a7a",
+    armored: "#e6c35c",
+    runner: "#7ab6ff",
+    shooter: "#d48cff",
+    civilian: "#ffe2b0",
+  };
+  const c = document.createElement("canvas");
+  c.width = 256;
+  c.height = 48;
+  const g = c.getContext("2d")!;
+  g.fillStyle = "rgba(8,6,5,0.78)";
+  g.fillRect(0, 0, 256, 48);
+  g.strokeStyle = tint[kind];
+  g.lineWidth = 2;
+  g.strokeRect(1, 1, 254, 46);
+  g.fillStyle = tint[kind];
+  g.font = "700 22px sans-serif";
+  g.textAlign = "center";
+  g.textBaseline = "middle";
+  g.fillText(labels[kind], 128, 26);
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  const spr = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false }));
+  spr.scale.set(2.4, 0.45, 1);
+  return spr;
+}
 
 export type Projectile = {
   mesh: THREE.Mesh;

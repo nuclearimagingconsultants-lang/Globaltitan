@@ -65,9 +65,8 @@ import { CrowdSystem } from "../systems/CrowdSystem";
 import { LoreContacts } from "../systems/LoreContacts";
 import { pullWeather, type WeatherSnap } from "../systems/Weather";
 import { CrimeWaveBoard } from "../systems/CrimeWaveBoard";
-import { DesertWarzone, ASH_FLATS_CITY_ID } from "../systems/DesertWarzone";
+import { DesertWarzone } from "../systems/DesertWarzone";
 import { KaijuPit } from "../systems/KaijuPit";
-import { crimeWaveById } from "../data/crimeWave";
 
 export class Game {
   private renderer: THREE.WebGLRenderer;
@@ -523,6 +522,28 @@ export class Game {
     this.player.rage = this.save.rage ?? 0;
     this.player.gamma = this.save.gamma ?? 0;
     this.flushObjectives();
+  }
+
+
+  private collectStreetRoster(): { name: string; kind: string; dist: number; hp?: string }[] {
+    const rows: { name: string; kind: string; dist: number; hp?: string }[] = [];
+    if (!this.crimes || !this.player) return rows;
+    const origin = this.player.position;
+    for (const ev of this.crimes.events ?? []) {
+      if (ev.cleared) continue;
+      for (const e of ev.enemies ?? []) {
+        if (!e.alive) continue;
+        const dist = origin.distanceTo(e.mesh.position);
+        rows.push({
+          name: e.kind.toUpperCase(),
+          kind: ev.kind ?? e.kind,
+          dist: Math.round(dist),
+          hp: String(Math.max(0, Math.round(e.hp))) + "/" + String(Math.round(e.maxHp)),
+        });
+      }
+    }
+    rows.sort((a, b) => a.dist - b.dist);
+    return rows.slice(0, 40);
   }
 
   private uiLive(): boolean {

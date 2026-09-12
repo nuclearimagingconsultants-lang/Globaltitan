@@ -1266,7 +1266,7 @@ export class Overlay {
           <button type="button" class="cta" data-quest="${q.id}" ${st === "open" ? "" : "disabled"}>${label}</button>
         </div>
       </article>`;
-    }).join("")) + "<!-- CRIME_WAVE_BOARD_HTML -->" + CRIME_WAVE_CONTACTS.map((q) => {
+    }).join("") + "<!-- CRIME_WAVE_BOARD_HTML -->" + CRIME_WAVE_CONTACTS.map((q) => {
       const st = crimeWaveStatus(save, q);
       const label = st === "active" ? "On the job" : st === "done" ? "Finished" : "Take job";
       const extra = st === "active" ? `${save.questProgress}/${q.objectives.length}` : `${q.rewards.smashCash} · ${q.rewards.xp} XP`;
