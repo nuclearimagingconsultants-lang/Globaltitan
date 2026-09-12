@@ -1,4 +1,4 @@
-# Logs
+﻿# Logs
 logs
 *.log
 npm-debug.log*
@@ -18,7 +18,7 @@ dotenv-maps.env
 # OSM dump sidecars (playable packs stay in public/maps/*.json)
 public/maps/*.geojson
 
-# Google/OSM tile dumps — CityRefs is notes only, never scraped imagery
+# Google/OSM tile dumps â€” CityRefs is notes only, never scraped imagery
 Docs/CityRefs/**/*.jpg
 Docs/CityRefs/**/*.jpeg
 Docs/CityRefs/**/*.png
@@ -35,3 +35,6 @@ Docs/CityRefs/**/tiles/
 *.njsproj
 *.sln
 *.sw?
+.env.*.local
+node_modules/
+dist/

@@ -64,6 +64,10 @@ import { ComicSystem, markComicCleared, markComicFound, comicById } from "../sys
 import { CrowdSystem } from "../systems/CrowdSystem";
 import { LoreContacts } from "../systems/LoreContacts";
 import { pullWeather, type WeatherSnap } from "../systems/Weather";
+import { CrimeWaveBoard } from "../systems/CrimeWaveBoard";
+import { DesertWarzone, ASH_FLATS_CITY_ID } from "../systems/DesertWarzone";
+import { KaijuPit } from "../systems/KaijuPit";
+import { crimeWaveById } from "../data/crimeWave";
 
 export class Game {
   private renderer: THREE.WebGLRenderer;
@@ -85,6 +89,9 @@ export class Game {
   private traffic!: Traffic;
   private boss!: BossFight;
   private quests!: QuestSystem;
+  private crimeWave = new CrimeWaveBoard();
+  private desert = new DesertWarzone();
+  private kaiju = new KaijuPit();
   private hood!: NeighborhoodSystem;
   private dungeon = new DungeonRun();
   private fx = new SmashFx();
@@ -590,6 +597,16 @@ export class Game {
   }
 
   private acceptQuest(id: string): void {
+    if (id.startsWith("cw-")) {
+      this.crimeWave.accept(this.save, id, {
+        toast: (m) => this.pushToast(m),
+        grantXp: (n) => this.grantXp(n),
+        writeSave: () => writeSave(this.save),
+        enterPlay: () => this.enterPlay(),
+        travelTo: (cid) => this.travelTo(cid),
+      });
+      return;
+    }
     const def = questById(id);
     if (!def || questStatus(this.save, def) !== "open") return;
     this.save.activeQuestId = def.id;
@@ -762,6 +779,11 @@ export class Game {
     this.scene.add(this.boss.group);
     this.quests = new QuestSystem(this.world);
     this.scene.add(this.quests.group);
+    this.desert.attachToNy(this.world.playerSpawn);
+    this.scene.add(this.desert.group);
+    this.scene.add(this.crimeWave.group);
+    this.scene.add(this.kaiju.group);
+    this.crimeWave.syncFromSave(this.save);
     this.hood = new NeighborhoodSystem(this.world);
     this.scene.add(this.hood.group);
     this.beasts.loadCity(city.id, city.name, this.save, this.world.playerSpawn);
@@ -2373,6 +2395,9 @@ export class Game {
     const quest = this.save.activeQuestId ? questById(this.save.activeQuestId) : undefined;
     const obj = this.save.activeObjectiveId ? objectiveById(this.save.activeObjectiveId) : undefined;
     let mission = obj ? `${obj.title} — ${obj.blurb}` : `${city.storyLine} Open the map (M) for the chain.`;
+    const cwMission = this.crimeWave.missionLine(this.save);
+    if (this.kaiju.active) mission = this.kaiju.hudLine();
+    else if (cwMission) mission = cwMission;
     if (this.comics.active) mission = this.comics.beatTitle();
     else if (this.inDungeon) mission = `${this.dungeon.title} — ${this.dungeon.name}. Smash the capital boss.`;
     else if (this.hood.district === District.Heroes) {
@@ -2813,6 +2838,7 @@ export class Game {
   }
 
   private collectPins(): MapPin[] {
+    // Crime Wave pins appended near end — see marker CRIME_WAVE_PINS
     const now = performance.now();
     if (this.pinCache && now - this.pinCache.t < 220) return this.pinCache.pins;
     const pins: MapPin[] = [];
@@ -2984,6 +3010,7 @@ export class Game {
         });
       }
     }
+    pins.push(...(this.crimeWave.collectPins(this.save, { x: this.world.playerSpawn.x, z: this.world.playerSpawn.z }) as unknown as MapPin[])); // CRIME_WAVE_PINS_APPLIED
     this.pinCache = { t: now, pins };
     return pins;
   }

@@ -1,3 +1,4 @@
+import { CRIME_WAVE_CONTACTS, crimeWaveStatus } from "../data/crimeWave";
 ﻿import { BALANCE_PROFILES, balanceBlurb, type BalanceProfile } from "../data/balance";
 import { CITIES, EXTRA_CITIES, TRAVEL_CITIES, getCity, isExtraCity } from "../data/cities";
 import { OBJECTIVES, objectiveStatus } from "../data/objectives";
@@ -1265,6 +1266,11 @@ export class Overlay {
           <button type="button" class="cta" data-quest="${q.id}" ${st === "open" ? "" : "disabled"}>${label}</button>
         </div>
       </article>`;
+    }).join("")) + "<!-- CRIME_WAVE_BOARD_HTML -->" + CRIME_WAVE_CONTACTS.map((q) => {
+      const st = crimeWaveStatus(save, q);
+      const label = st === "active" ? "On the job" : st === "done" ? "Finished" : "Take job";
+      const extra = st === "active" ? `${save.questProgress}/${q.objectives.length}` : `${q.rewards.smashCash} · ${q.rewards.xp} XP`;
+      return `<article class="quest-card crime-wave ${st}"><p class="eyebrow">${q.contact} · ${q.archetype}</p><h3>${q.title}</h3><p>${q.blurb}</p><p class="lock">${extra}</p><div class="actions"><button type="button" class="cta" data-quest="${q.id}" ${st === "open" ? "" : "disabled"}>${label}</button></div></article>`;
     }).join("");
     const drop = this.root.querySelector<HTMLButtonElement>("#btn-abandon");
     if (drop) drop.hidden = !active;
