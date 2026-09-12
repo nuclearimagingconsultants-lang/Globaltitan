@@ -1,0 +1,1447 @@
+{
+  "new-york": {
+    "name": "New York",
+    "south": 40.749,
+    "west": -74.002,
+    "north": 40.762,
+    "east": -73.978,
+    "origin": [
+      -73.9903,
+      40.7569
+    ],
+    "landmarks": [
+      {
+        "id": "port-authority",
+        "name": "Port Authority Bus Terminal",
+        "kind": "bus",
+        "lon": -73.9903,
+        "lat": 40.7569
+      },
+      {
+        "id": "times-square",
+        "name": "Times Square",
+        "kind": "plaza",
+        "lon": -73.9855,
+        "lat": 40.758
+      },
+      {
+        "id": "bryant-park",
+        "name": "Bryant Park",
+        "kind": "park",
+        "lon": -73.9832,
+        "lat": 40.7536
+      },
+      {
+        "id": "nypl",
+        "name": "New York Public Library",
+        "kind": "civic",
+        "lon": -73.9822,
+        "lat": 40.7532
+      },
+      {
+        "id": "times-sq-station",
+        "name": "Times Square\u201342nd Street",
+        "kind": "dungeon",
+        "lon": -73.9869,
+        "lat": 40.7557
+      },
+      {
+        "id": "eighth-42",
+        "name": "42nd Street & 8th Avenue",
+        "kind": "diner",
+        "lon": -73.9894,
+        "lat": 40.7564
+      }
+    ]
+  },
+  "boston": {
+    "name": "Boston",
+    "south": 42.3505,
+    "west": -71.0725,
+    "north": 42.3615,
+    "east": -71.0525,
+    "origin": [
+      -71.0656,
+      42.3551
+    ],
+    "landmarks": [
+      {
+        "id": "boston-common",
+        "name": "Boston Common",
+        "kind": "plaza",
+        "lon": -71.0656,
+        "lat": 42.3551
+      },
+      {
+        "id": "park-st",
+        "name": "Park Street Station",
+        "kind": "dungeon",
+        "lon": -71.0624,
+        "lat": 42.3564
+      },
+      {
+        "id": "state-house",
+        "name": "Massachusetts State House",
+        "kind": "civic",
+        "lon": -71.0638,
+        "lat": 42.3588
+      }
+    ]
+  },
+  "philadelphia": {
+    "name": "Philadelphia",
+    "south": 39.948,
+    "west": -75.1715,
+    "north": 39.9585,
+    "east": -75.155,
+    "origin": [
+      -75.1636,
+      39.9526
+    ],
+    "landmarks": [
+      {
+        "id": "city-hall",
+        "name": "Philadelphia City Hall",
+        "kind": "civic",
+        "lon": -75.1636,
+        "lat": 39.9526
+      },
+      {
+        "id": "love-park",
+        "name": "Love Park",
+        "kind": "plaza",
+        "lon": -75.1652,
+        "lat": 39.954
+      },
+      {
+        "id": "15th-market",
+        "name": "15th Street Station",
+        "kind": "dungeon",
+        "lon": -75.165,
+        "lat": 39.9524
+      }
+    ]
+  },
+  "washington-dc": {
+    "name": "Washington, DC",
+    "south": 38.888,
+    "west": -77.04,
+    "north": 38.9015,
+    "east": -77.02,
+    "origin": [
+      -77.0365,
+      38.8977
+    ],
+    "landmarks": [
+      {
+        "id": "white-house",
+        "name": "The White House",
+        "kind": "civic",
+        "lon": -77.0365,
+        "lat": 38.8977
+      },
+      {
+        "id": "washington-monument",
+        "name": "Washington Monument",
+        "kind": "plaza",
+        "lon": -77.0353,
+        "lat": 38.8895
+      },
+      {
+        "id": "farragut",
+        "name": "Farragut West",
+        "kind": "dungeon",
+        "lon": -77.0407,
+        "lat": 38.9013
+      }
+    ]
+  },
+  "baltimore": {
+    "name": "Baltimore",
+    "south": 39.2838,
+    "west": -76.618,
+    "north": 39.2962,
+    "east": -76.602,
+    "origin": [
+      -76.61,
+      39.29
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "baltimore-plaza",
+        "name": "Baltimore plaza",
+        "kind": "plaza",
+        "lon": -76.61,
+        "lat": 39.29
+      },
+      {
+        "id": "baltimore-gate",
+        "name": "Baltimore capital gate",
+        "kind": "dungeon",
+        "lon": -76.6088,
+        "lat": 39.2892
+      }
+    ]
+  },
+  "pittsburgh": {
+    "name": "Pittsburgh",
+    "south": 40.4338,
+    "west": -80.0081,
+    "north": 40.4462,
+    "east": -79.9919,
+    "origin": [
+      -80.0,
+      40.44
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "pittsburgh-plaza",
+        "name": "Pittsburgh plaza",
+        "kind": "plaza",
+        "lon": -80.0,
+        "lat": 40.44
+      },
+      {
+        "id": "pittsburgh-gate",
+        "name": "Pittsburgh capital gate",
+        "kind": "dungeon",
+        "lon": -79.9988,
+        "lat": 40.4392
+      }
+    ]
+  },
+  "cleveland": {
+    "name": "Cleveland",
+    "south": 41.4938,
+    "west": -81.6983,
+    "north": 41.5062,
+    "east": -81.6817,
+    "origin": [
+      -81.69,
+      41.5
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "cleveland-plaza",
+        "name": "Cleveland plaza",
+        "kind": "plaza",
+        "lon": -81.69,
+        "lat": 41.5
+      },
+      {
+        "id": "cleveland-gate",
+        "name": "Cleveland capital gate",
+        "kind": "dungeon",
+        "lon": -81.6888,
+        "lat": 41.4992
+      }
+    ]
+  },
+  "detroit": {
+    "name": "Detroit",
+    "south": 42.3238,
+    "west": -83.0584,
+    "north": 42.3362,
+    "east": -83.0416,
+    "origin": [
+      -83.05,
+      42.33
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "detroit-plaza",
+        "name": "Detroit plaza",
+        "kind": "plaza",
+        "lon": -83.05,
+        "lat": 42.33
+      },
+      {
+        "id": "detroit-gate",
+        "name": "Detroit capital gate",
+        "kind": "dungeon",
+        "lon": -83.0488,
+        "lat": 42.3292
+      }
+    ]
+  },
+  "chicago": {
+    "name": "Chicago",
+    "south": 41.8738,
+    "west": -87.6383,
+    "north": 41.8862,
+    "east": -87.6217,
+    "origin": [
+      -87.63,
+      41.88
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "chicago-plaza",
+        "name": "Chicago plaza",
+        "kind": "plaza",
+        "lon": -87.63,
+        "lat": 41.88
+      },
+      {
+        "id": "chicago-gate",
+        "name": "Chicago capital gate",
+        "kind": "dungeon",
+        "lon": -87.6288,
+        "lat": 41.8792
+      }
+    ]
+  },
+  "milwaukee": {
+    "name": "Milwaukee",
+    "south": 43.0338,
+    "west": -87.9185,
+    "north": 43.0462,
+    "east": -87.9015,
+    "origin": [
+      -87.91,
+      43.04
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "milwaukee-plaza",
+        "name": "Milwaukee plaza",
+        "kind": "plaza",
+        "lon": -87.91,
+        "lat": 43.04
+      },
+      {
+        "id": "milwaukee-gate",
+        "name": "Milwaukee capital gate",
+        "kind": "dungeon",
+        "lon": -87.9088,
+        "lat": 43.0392
+      }
+    ]
+  },
+  "minneapolis": {
+    "name": "Minneapolis",
+    "south": 44.9738,
+    "west": -93.2788,
+    "north": 44.9862,
+    "east": -93.2612,
+    "origin": [
+      -93.27,
+      44.98
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "minneapolis-plaza",
+        "name": "Minneapolis plaza",
+        "kind": "plaza",
+        "lon": -93.27,
+        "lat": 44.98
+      },
+      {
+        "id": "minneapolis-gate",
+        "name": "Minneapolis capital gate",
+        "kind": "dungeon",
+        "lon": -93.2688,
+        "lat": 44.9792
+      }
+    ]
+  },
+  "st-louis": {
+    "name": "St. Louis",
+    "south": 38.6238,
+    "west": -90.2079,
+    "north": 38.6362,
+    "east": -90.1921,
+    "origin": [
+      -90.2,
+      38.63
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "st-louis-plaza",
+        "name": "St. Louis plaza",
+        "kind": "plaza",
+        "lon": -90.2,
+        "lat": 38.63
+      },
+      {
+        "id": "st-louis-gate",
+        "name": "St. Louis capital gate",
+        "kind": "dungeon",
+        "lon": -90.1988,
+        "lat": 38.6292
+      }
+    ]
+  },
+  "kansas-city": {
+    "name": "Kansas City",
+    "south": 39.0938,
+    "west": -94.588,
+    "north": 39.1062,
+    "east": -94.572,
+    "origin": [
+      -94.58,
+      39.1
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "kansas-city-plaza",
+        "name": "Kansas City plaza",
+        "kind": "plaza",
+        "lon": -94.58,
+        "lat": 39.1
+      },
+      {
+        "id": "kansas-city-gate",
+        "name": "Kansas City capital gate",
+        "kind": "dungeon",
+        "lon": -94.5788,
+        "lat": 39.0992
+      }
+    ]
+  },
+  "omaha": {
+    "name": "Omaha",
+    "south": 41.2538,
+    "west": -95.9482,
+    "north": 41.2662,
+    "east": -95.9318,
+    "origin": [
+      -95.94,
+      41.26
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "omaha-plaza",
+        "name": "Omaha plaza",
+        "kind": "plaza",
+        "lon": -95.94,
+        "lat": 41.26
+      },
+      {
+        "id": "omaha-gate",
+        "name": "Omaha capital gate",
+        "kind": "dungeon",
+        "lon": -95.9388,
+        "lat": 41.2592
+      }
+    ]
+  },
+  "denver": {
+    "name": "Denver",
+    "south": 39.7338,
+    "west": -104.9981,
+    "north": 39.7462,
+    "east": -104.9819,
+    "origin": [
+      -104.99,
+      39.74
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "denver-plaza",
+        "name": "Denver plaza",
+        "kind": "plaza",
+        "lon": -104.99,
+        "lat": 39.74
+      },
+      {
+        "id": "denver-gate",
+        "name": "Denver capital gate",
+        "kind": "dungeon",
+        "lon": -104.9888,
+        "lat": 39.7392
+      }
+    ]
+  },
+  "oklahoma-city": {
+    "name": "Oklahoma City",
+    "south": 35.4638,
+    "west": -97.5276,
+    "north": 35.4762,
+    "east": -97.5124,
+    "origin": [
+      -97.52,
+      35.47
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "oklahoma-city-plaza",
+        "name": "Oklahoma City plaza",
+        "kind": "plaza",
+        "lon": -97.52,
+        "lat": 35.47
+      },
+      {
+        "id": "oklahoma-city-gate",
+        "name": "Oklahoma City capital gate",
+        "kind": "dungeon",
+        "lon": -97.5188,
+        "lat": 35.4692
+      }
+    ]
+  },
+  "dallas": {
+    "name": "Dallas",
+    "south": 32.7738,
+    "west": -96.8074,
+    "north": 32.7862,
+    "east": -96.7926,
+    "origin": [
+      -96.8,
+      32.78
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "dallas-plaza",
+        "name": "Dallas plaza",
+        "kind": "plaza",
+        "lon": -96.8,
+        "lat": 32.78
+      },
+      {
+        "id": "dallas-gate",
+        "name": "Dallas capital gate",
+        "kind": "dungeon",
+        "lon": -96.7988,
+        "lat": 32.7792
+      }
+    ]
+  },
+  "houston": {
+    "name": "Houston",
+    "south": 29.7538,
+    "west": -95.3771,
+    "north": 29.7662,
+    "east": -95.3629,
+    "origin": [
+      -95.37,
+      29.76
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "houston-plaza",
+        "name": "Houston plaza",
+        "kind": "plaza",
+        "lon": -95.37,
+        "lat": 29.76
+      },
+      {
+        "id": "houston-gate",
+        "name": "Houston capital gate",
+        "kind": "dungeon",
+        "lon": -95.3688,
+        "lat": 29.7592
+      }
+    ]
+  },
+  "san-antonio": {
+    "name": "San Antonio",
+    "south": 29.4138,
+    "west": -98.4971,
+    "north": 29.4262,
+    "east": -98.4829,
+    "origin": [
+      -98.49,
+      29.42
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "san-antonio-plaza",
+        "name": "San Antonio plaza",
+        "kind": "plaza",
+        "lon": -98.49,
+        "lat": 29.42
+      },
+      {
+        "id": "san-antonio-gate",
+        "name": "San Antonio capital gate",
+        "kind": "dungeon",
+        "lon": -98.4888,
+        "lat": 29.4192
+      }
+    ]
+  },
+  "austin": {
+    "name": "Austin",
+    "south": 30.2638,
+    "west": -97.7472,
+    "north": 30.2762,
+    "east": -97.7328,
+    "origin": [
+      -97.74,
+      30.27
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "austin-plaza",
+        "name": "Austin plaza",
+        "kind": "plaza",
+        "lon": -97.74,
+        "lat": 30.27
+      },
+      {
+        "id": "austin-gate",
+        "name": "Austin capital gate",
+        "kind": "dungeon",
+        "lon": -97.7388,
+        "lat": 30.2692
+      }
+    ]
+  },
+  "new-orleans": {
+    "name": "New Orleans",
+    "south": 29.9438,
+    "west": -90.0772,
+    "north": 29.9562,
+    "east": -90.0628,
+    "origin": [
+      -90.07,
+      29.95
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "new-orleans-plaza",
+        "name": "New Orleans plaza",
+        "kind": "plaza",
+        "lon": -90.07,
+        "lat": 29.95
+      },
+      {
+        "id": "new-orleans-gate",
+        "name": "New Orleans capital gate",
+        "kind": "dungeon",
+        "lon": -90.0688,
+        "lat": 29.9492
+      }
+    ]
+  },
+  "memphis": {
+    "name": "Memphis",
+    "south": 35.1438,
+    "west": -90.0576,
+    "north": 35.1562,
+    "east": -90.0424,
+    "origin": [
+      -90.05,
+      35.15
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "memphis-plaza",
+        "name": "Memphis plaza",
+        "kind": "plaza",
+        "lon": -90.05,
+        "lat": 35.15
+      },
+      {
+        "id": "memphis-gate",
+        "name": "Memphis capital gate",
+        "kind": "dungeon",
+        "lon": -90.0488,
+        "lat": 35.1492
+      }
+    ]
+  },
+  "nashville": {
+    "name": "Nashville",
+    "south": 36.1538,
+    "west": -86.7877,
+    "north": 36.1662,
+    "east": -86.7723,
+    "origin": [
+      -86.78,
+      36.16
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "nashville-plaza",
+        "name": "Nashville plaza",
+        "kind": "plaza",
+        "lon": -86.78,
+        "lat": 36.16
+      },
+      {
+        "id": "nashville-gate",
+        "name": "Nashville capital gate",
+        "kind": "dungeon",
+        "lon": -86.7788,
+        "lat": 36.1592
+      }
+    ]
+  },
+  "atlanta": {
+    "name": "Atlanta",
+    "south": 33.7438,
+    "west": -84.3975,
+    "north": 33.7562,
+    "east": -84.3825,
+    "origin": [
+      -84.39,
+      33.75
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "atlanta-plaza",
+        "name": "Atlanta plaza",
+        "kind": "plaza",
+        "lon": -84.39,
+        "lat": 33.75
+      },
+      {
+        "id": "atlanta-gate",
+        "name": "Atlanta capital gate",
+        "kind": "dungeon",
+        "lon": -84.3888,
+        "lat": 33.7492
+      }
+    ]
+  },
+  "charlotte": {
+    "name": "Charlotte",
+    "south": 35.2238,
+    "west": -80.8476,
+    "north": 35.2362,
+    "east": -80.8324,
+    "origin": [
+      -80.84,
+      35.23
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "charlotte-plaza",
+        "name": "Charlotte plaza",
+        "kind": "plaza",
+        "lon": -80.84,
+        "lat": 35.23
+      },
+      {
+        "id": "charlotte-gate",
+        "name": "Charlotte capital gate",
+        "kind": "dungeon",
+        "lon": -80.8388,
+        "lat": 35.2292
+      }
+    ]
+  },
+  "richmond": {
+    "name": "Richmond",
+    "south": 37.5338,
+    "west": -77.4478,
+    "north": 37.5462,
+    "east": -77.4322,
+    "origin": [
+      -77.44,
+      37.54
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "richmond-plaza",
+        "name": "Richmond plaza",
+        "kind": "plaza",
+        "lon": -77.44,
+        "lat": 37.54
+      },
+      {
+        "id": "richmond-gate",
+        "name": "Richmond capital gate",
+        "kind": "dungeon",
+        "lon": -77.4388,
+        "lat": 37.5392
+      }
+    ]
+  },
+  "raleigh": {
+    "name": "Raleigh",
+    "south": 35.7738,
+    "west": -78.6476,
+    "north": 35.7862,
+    "east": -78.6324,
+    "origin": [
+      -78.64,
+      35.78
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "raleigh-plaza",
+        "name": "Raleigh plaza",
+        "kind": "plaza",
+        "lon": -78.64,
+        "lat": 35.78
+      },
+      {
+        "id": "raleigh-gate",
+        "name": "Raleigh capital gate",
+        "kind": "dungeon",
+        "lon": -78.6388,
+        "lat": 35.7792
+      }
+    ]
+  },
+  "miami": {
+    "name": "Miami",
+    "south": 25.7538,
+    "west": -80.1969,
+    "north": 25.7662,
+    "east": -80.1831,
+    "origin": [
+      -80.19,
+      25.76
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "miami-plaza",
+        "name": "Miami plaza",
+        "kind": "plaza",
+        "lon": -80.19,
+        "lat": 25.76
+      },
+      {
+        "id": "miami-gate",
+        "name": "Miami capital gate",
+        "kind": "dungeon",
+        "lon": -80.1888,
+        "lat": 25.7592
+      }
+    ]
+  },
+  "tampa": {
+    "name": "Tampa",
+    "south": 27.9438,
+    "west": -82.467,
+    "north": 27.9562,
+    "east": -82.453,
+    "origin": [
+      -82.46,
+      27.95
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "tampa-plaza",
+        "name": "Tampa plaza",
+        "kind": "plaza",
+        "lon": -82.46,
+        "lat": 27.95
+      },
+      {
+        "id": "tampa-gate",
+        "name": "Tampa capital gate",
+        "kind": "dungeon",
+        "lon": -82.4588,
+        "lat": 27.9492
+      }
+    ]
+  },
+  "orlando": {
+    "name": "Orlando",
+    "south": 28.5338,
+    "west": -81.3871,
+    "north": 28.5462,
+    "east": -81.3729,
+    "origin": [
+      -81.38,
+      28.54
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "orlando-plaza",
+        "name": "Orlando plaza",
+        "kind": "plaza",
+        "lon": -81.38,
+        "lat": 28.54
+      },
+      {
+        "id": "orlando-gate",
+        "name": "Orlando capital gate",
+        "kind": "dungeon",
+        "lon": -81.3788,
+        "lat": 28.5392
+      }
+    ]
+  },
+  "jacksonville": {
+    "name": "Jacksonville",
+    "south": 30.3238,
+    "west": -81.6672,
+    "north": 30.3362,
+    "east": -81.6528,
+    "origin": [
+      -81.66,
+      30.33
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "jacksonville-plaza",
+        "name": "Jacksonville plaza",
+        "kind": "plaza",
+        "lon": -81.66,
+        "lat": 30.33
+      },
+      {
+        "id": "jacksonville-gate",
+        "name": "Jacksonville capital gate",
+        "kind": "dungeon",
+        "lon": -81.6588,
+        "lat": 30.3292
+      }
+    ]
+  },
+  "birmingham": {
+    "name": "Birmingham",
+    "south": 33.5138,
+    "west": -86.8174,
+    "north": 33.5262,
+    "east": -86.8026,
+    "origin": [
+      -86.81,
+      33.52
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "birmingham-plaza",
+        "name": "Birmingham plaza",
+        "kind": "plaza",
+        "lon": -86.81,
+        "lat": 33.52
+      },
+      {
+        "id": "birmingham-gate",
+        "name": "Birmingham capital gate",
+        "kind": "dungeon",
+        "lon": -86.8088,
+        "lat": 33.5192
+      }
+    ]
+  },
+  "louisville": {
+    "name": "Louisville",
+    "south": 38.2438,
+    "west": -85.7679,
+    "north": 38.2562,
+    "east": -85.7521,
+    "origin": [
+      -85.76,
+      38.25
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "louisville-plaza",
+        "name": "Louisville plaza",
+        "kind": "plaza",
+        "lon": -85.76,
+        "lat": 38.25
+      },
+      {
+        "id": "louisville-gate",
+        "name": "Louisville capital gate",
+        "kind": "dungeon",
+        "lon": -85.7588,
+        "lat": 38.2492
+      }
+    ]
+  },
+  "indianapolis": {
+    "name": "Indianapolis",
+    "south": 39.7638,
+    "west": -86.1681,
+    "north": 39.7762,
+    "east": -86.1519,
+    "origin": [
+      -86.16,
+      39.77
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "indianapolis-plaza",
+        "name": "Indianapolis plaza",
+        "kind": "plaza",
+        "lon": -86.16,
+        "lat": 39.77
+      },
+      {
+        "id": "indianapolis-gate",
+        "name": "Indianapolis capital gate",
+        "kind": "dungeon",
+        "lon": -86.1588,
+        "lat": 39.7692
+      }
+    ]
+  },
+  "columbus": {
+    "name": "Columbus",
+    "south": 39.9538,
+    "west": -83.0081,
+    "north": 39.9662,
+    "east": -82.9919,
+    "origin": [
+      -83.0,
+      39.96
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "columbus-plaza",
+        "name": "Columbus plaza",
+        "kind": "plaza",
+        "lon": -83.0,
+        "lat": 39.96
+      },
+      {
+        "id": "columbus-gate",
+        "name": "Columbus capital gate",
+        "kind": "dungeon",
+        "lon": -82.9988,
+        "lat": 39.9592
+      }
+    ]
+  },
+  "cincinnati": {
+    "name": "Cincinnati",
+    "south": 39.0938,
+    "west": -84.518,
+    "north": 39.1062,
+    "east": -84.502,
+    "origin": [
+      -84.51,
+      39.1
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "cincinnati-plaza",
+        "name": "Cincinnati plaza",
+        "kind": "plaza",
+        "lon": -84.51,
+        "lat": 39.1
+      },
+      {
+        "id": "cincinnati-gate",
+        "name": "Cincinnati capital gate",
+        "kind": "dungeon",
+        "lon": -84.5088,
+        "lat": 39.0992
+      }
+    ]
+  },
+  "las-vegas": {
+    "name": "Las Vegas",
+    "south": 36.1638,
+    "west": -115.1477,
+    "north": 36.1762,
+    "east": -115.1323,
+    "origin": [
+      -115.14,
+      36.17
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "las-vegas-plaza",
+        "name": "Las Vegas plaza",
+        "kind": "plaza",
+        "lon": -115.14,
+        "lat": 36.17
+      },
+      {
+        "id": "las-vegas-gate",
+        "name": "Las Vegas capital gate",
+        "kind": "dungeon",
+        "lon": -115.1388,
+        "lat": 36.1692
+      }
+    ]
+  },
+  "phoenix": {
+    "name": "Phoenix",
+    "south": 33.4438,
+    "west": -112.0774,
+    "north": 33.4562,
+    "east": -112.0626,
+    "origin": [
+      -112.07,
+      33.45
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "phoenix-plaza",
+        "name": "Phoenix plaza",
+        "kind": "plaza",
+        "lon": -112.07,
+        "lat": 33.45
+      },
+      {
+        "id": "phoenix-gate",
+        "name": "Phoenix capital gate",
+        "kind": "dungeon",
+        "lon": -112.0688,
+        "lat": 33.4492
+      }
+    ]
+  },
+  "albuquerque": {
+    "name": "Albuquerque",
+    "south": 35.0738,
+    "west": -106.6576,
+    "north": 35.0862,
+    "east": -106.6424,
+    "origin": [
+      -106.65,
+      35.08
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "albuquerque-plaza",
+        "name": "Albuquerque plaza",
+        "kind": "plaza",
+        "lon": -106.65,
+        "lat": 35.08
+      },
+      {
+        "id": "albuquerque-gate",
+        "name": "Albuquerque capital gate",
+        "kind": "dungeon",
+        "lon": -106.6488,
+        "lat": 35.0792
+      }
+    ]
+  },
+  "salt-lake-city": {
+    "name": "Salt Lake City",
+    "south": 40.7538,
+    "west": -111.8982,
+    "north": 40.7662,
+    "east": -111.8818,
+    "origin": [
+      -111.89,
+      40.76
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "salt-lake-city-plaza",
+        "name": "Salt Lake City plaza",
+        "kind": "plaza",
+        "lon": -111.89,
+        "lat": 40.76
+      },
+      {
+        "id": "salt-lake-city-gate",
+        "name": "Salt Lake City capital gate",
+        "kind": "dungeon",
+        "lon": -111.8888,
+        "lat": 40.7592
+      }
+    ]
+  },
+  "seattle": {
+    "name": "Seattle",
+    "south": 47.6038,
+    "west": -122.3392,
+    "north": 47.6162,
+    "east": -122.3208,
+    "origin": [
+      -122.33,
+      47.61
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "seattle-plaza",
+        "name": "Seattle plaza",
+        "kind": "plaza",
+        "lon": -122.33,
+        "lat": 47.61
+      },
+      {
+        "id": "seattle-gate",
+        "name": "Seattle capital gate",
+        "kind": "dungeon",
+        "lon": -122.3288,
+        "lat": 47.6092
+      }
+    ]
+  },
+  "portland": {
+    "name": "Portland",
+    "south": 45.5138,
+    "west": -122.6888,
+    "north": 45.5262,
+    "east": -122.6712,
+    "origin": [
+      -122.68,
+      45.52
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "portland-plaza",
+        "name": "Portland plaza",
+        "kind": "plaza",
+        "lon": -122.68,
+        "lat": 45.52
+      },
+      {
+        "id": "portland-gate",
+        "name": "Portland capital gate",
+        "kind": "dungeon",
+        "lon": -122.6788,
+        "lat": 45.5192
+      }
+    ]
+  },
+  "san-francisco": {
+    "name": "San Francisco",
+    "south": 37.7638,
+    "west": -122.4278,
+    "north": 37.7762,
+    "east": -122.4122,
+    "origin": [
+      -122.42,
+      37.77
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "san-francisco-plaza",
+        "name": "San Francisco plaza",
+        "kind": "plaza",
+        "lon": -122.42,
+        "lat": 37.77
+      },
+      {
+        "id": "san-francisco-gate",
+        "name": "San Francisco capital gate",
+        "kind": "dungeon",
+        "lon": -122.4188,
+        "lat": 37.7692
+      }
+    ]
+  },
+  "oakland": {
+    "name": "Oakland",
+    "south": 37.7938,
+    "west": -122.2778,
+    "north": 37.8062,
+    "east": -122.2622,
+    "origin": [
+      -122.27,
+      37.8
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "oakland-plaza",
+        "name": "Oakland plaza",
+        "kind": "plaza",
+        "lon": -122.27,
+        "lat": 37.8
+      },
+      {
+        "id": "oakland-gate",
+        "name": "Oakland capital gate",
+        "kind": "dungeon",
+        "lon": -122.2688,
+        "lat": 37.7992
+      }
+    ]
+  },
+  "san-jose": {
+    "name": "San Jose",
+    "south": 37.3338,
+    "west": -121.8978,
+    "north": 37.3462,
+    "east": -121.8822,
+    "origin": [
+      -121.89,
+      37.34
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "san-jose-plaza",
+        "name": "San Jose plaza",
+        "kind": "plaza",
+        "lon": -121.89,
+        "lat": 37.34
+      },
+      {
+        "id": "san-jose-gate",
+        "name": "San Jose capital gate",
+        "kind": "dungeon",
+        "lon": -121.8888,
+        "lat": 37.3392
+      }
+    ]
+  },
+  "sacramento": {
+    "name": "Sacramento",
+    "south": 38.5738,
+    "west": -121.4979,
+    "north": 38.5862,
+    "east": -121.4821,
+    "origin": [
+      -121.49,
+      38.58
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "sacramento-plaza",
+        "name": "Sacramento plaza",
+        "kind": "plaza",
+        "lon": -121.49,
+        "lat": 38.58
+      },
+      {
+        "id": "sacramento-gate",
+        "name": "Sacramento capital gate",
+        "kind": "dungeon",
+        "lon": -121.4888,
+        "lat": 38.5792
+      }
+    ]
+  },
+  "san-diego": {
+    "name": "San Diego",
+    "south": 32.7138,
+    "west": -117.1674,
+    "north": 32.7262,
+    "east": -117.1526,
+    "origin": [
+      -117.16,
+      32.72
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "san-diego-plaza",
+        "name": "San Diego plaza",
+        "kind": "plaza",
+        "lon": -117.16,
+        "lat": 32.72
+      },
+      {
+        "id": "san-diego-gate",
+        "name": "San Diego capital gate",
+        "kind": "dungeon",
+        "lon": -117.1588,
+        "lat": 32.7192
+      }
+    ]
+  },
+  "los-angeles": {
+    "name": "Los Angeles",
+    "south": 34.0438,
+    "west": -118.2475,
+    "north": 34.0562,
+    "east": -118.2325,
+    "origin": [
+      -118.24,
+      34.05
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "los-angeles-plaza",
+        "name": "Los Angeles plaza",
+        "kind": "plaza",
+        "lon": -118.24,
+        "lat": 34.05
+      },
+      {
+        "id": "los-angeles-gate",
+        "name": "Los Angeles capital gate",
+        "kind": "dungeon",
+        "lon": -118.2388,
+        "lat": 34.0492
+      }
+    ]
+  },
+  "honolulu": {
+    "name": "Honolulu",
+    "south": 21.3038,
+    "west": -157.8667,
+    "north": 21.3162,
+    "east": -157.8533,
+    "origin": [
+      -157.86,
+      21.31
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "honolulu-plaza",
+        "name": "Honolulu plaza",
+        "kind": "plaza",
+        "lon": -157.86,
+        "lat": 21.31
+      },
+      {
+        "id": "honolulu-gate",
+        "name": "Honolulu capital gate",
+        "kind": "dungeon",
+        "lon": -157.8588,
+        "lat": 21.3092
+      }
+    ]
+  },
+  "anchorage": {
+    "name": "Anchorage",
+    "south": 61.2138,
+    "west": -149.9129,
+    "north": 61.2262,
+    "east": -149.8871,
+    "origin": [
+      -149.9,
+      61.22
+    ],
+    "stub": true,
+    "landmarks": [
+      {
+        "id": "anchorage-plaza",
+        "name": "Anchorage plaza",
+        "kind": "plaza",
+        "lon": -149.9,
+        "lat": 61.22
+      },
+      {
+        "id": "anchorage-gate",
+        "name": "Anchorage capital gate",
+        "kind": "dungeon",
+        "lon": -149.8988,
+        "lat": 61.2192
+      }
+    ]
+  }
+}

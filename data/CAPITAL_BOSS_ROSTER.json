@@ -1,0 +1,2310 @@
+{
+  "version": 1,
+  "notes": "Reverse Marvel Threat Compendium: weak (#70 Toad) → strong (#01 Beyonder). NY is a separate stub. Working Marvel names; original faces; Worldbreaker remapKey hooks. Ranks 46–50 are screenshot gaps.",
+  "debugChain": [
+    "new-york",
+    "los-angeles"
+  ],
+  "killSpare": {
+    "everyCapital": true,
+    "unlockAt": 37
+  },
+  "threats": [
+    {
+      "rank": 70,
+      "id": "Toad",
+      "workingName": "Toad",
+      "ipAlias": "Toad",
+      "remapKey": "WB_THREAT_70",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 234,
+        "move": "hop",
+        "tint": 2955808
+      }
+    },
+    {
+      "rank": 69,
+      "id": "Stilt_Man",
+      "workingName": "Stilt-Man",
+      "ipAlias": "Stilt-Man",
+      "remapKey": "WB_THREAT_69",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 248,
+        "move": "stilt",
+        "tint": 3152416
+      }
+    },
+    {
+      "rank": 68,
+      "id": "Leap_Frog",
+      "workingName": "Leap-Frog",
+      "ipAlias": "Leap-Frog",
+      "remapKey": "WB_THREAT_68",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 262,
+        "move": "hop",
+        "tint": 3349024
+      }
+    },
+    {
+      "rank": 67,
+      "id": "Trapster",
+      "workingName": "Trapster",
+      "ipAlias": "Trapster",
+      "remapKey": "WB_THREAT_67",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 276,
+        "move": "paste",
+        "tint": 3480096
+      }
+    },
+    {
+      "rank": 66,
+      "id": "Matador",
+      "workingName": "Matador",
+      "ipAlias": "Matador",
+      "remapKey": "WB_THREAT_66",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 290,
+        "move": "brawl",
+        "tint": 3676704
+      }
+    },
+    {
+      "rank": 65,
+      "id": "Frog_Man",
+      "workingName": "Frog-Man",
+      "ipAlias": "Frog-Man",
+      "remapKey": "WB_THREAT_65",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 304,
+        "move": "hop",
+        "tint": 3873312
+      }
+    },
+    {
+      "rank": 64,
+      "id": "Kangaroo",
+      "workingName": "Kangaroo",
+      "ipAlias": "Kangaroo",
+      "remapKey": "WB_THREAT_64",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 318,
+        "move": "hop",
+        "tint": 4069920
+      }
+    },
+    {
+      "rank": 63,
+      "id": "Big_Wheel",
+      "workingName": "Big Wheel",
+      "ipAlias": "Big Wheel",
+      "remapKey": "WB_THREAT_63",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 332,
+        "move": "brawl",
+        "tint": 4266528
+      }
+    },
+    {
+      "rank": 62,
+      "id": "Will_O_The_Wisp",
+      "workingName": "Will-O-The-Wisp",
+      "ipAlias": "Will-O-The-Wisp",
+      "remapKey": "WB_THREAT_62",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 346,
+        "move": "brawl",
+        "tint": 4463136
+      }
+    },
+    {
+      "rank": 61,
+      "id": "Spot",
+      "workingName": "Spot",
+      "ipAlias": "Spot",
+      "remapKey": "WB_THREAT_61",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 360,
+        "move": "brawl",
+        "tint": 4659744
+      }
+    },
+    {
+      "rank": 60,
+      "id": "Shocker",
+      "workingName": "Shocker",
+      "ipAlias": "Shocker",
+      "remapKey": "WB_THREAT_60",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 374,
+        "move": "brawl",
+        "tint": 4790816
+      }
+    },
+    {
+      "rank": 59,
+      "id": "Boomerang",
+      "workingName": "Boomerang",
+      "ipAlias": "Boomerang",
+      "remapKey": "WB_THREAT_59",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 388,
+        "move": "brawl",
+        "tint": 4987424
+      }
+    },
+    {
+      "rank": 58,
+      "id": "Beetle",
+      "workingName": "Beetle",
+      "ipAlias": "Beetle",
+      "remapKey": "WB_THREAT_58",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 402,
+        "move": "brawl",
+        "tint": 5184032
+      }
+    },
+    {
+      "rank": 57,
+      "id": "Speed_Demon",
+      "workingName": "Speed Demon",
+      "ipAlias": "Speed Demon",
+      "remapKey": "WB_THREAT_57",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 416,
+        "move": "brawl",
+        "tint": 5380640
+      }
+    },
+    {
+      "rank": 56,
+      "id": "Hydro_Man",
+      "workingName": "Hydro-Man",
+      "ipAlias": "Hydro-Man",
+      "remapKey": "WB_THREAT_56",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 430,
+        "move": "brawl",
+        "tint": 5577248
+      }
+    },
+    {
+      "rank": 55,
+      "id": "Scorpion",
+      "workingName": "Scorpion",
+      "ipAlias": "Scorpion",
+      "remapKey": "WB_THREAT_55",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 444,
+        "move": "brawl",
+        "tint": 5773856
+      }
+    },
+    {
+      "rank": 54,
+      "id": "Rhino",
+      "workingName": "Rhino",
+      "ipAlias": "Rhino",
+      "remapKey": "WB_THREAT_54",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 458,
+        "move": "brawl",
+        "tint": 5970464
+      }
+    },
+    {
+      "rank": 53,
+      "id": "Lizard",
+      "workingName": "Lizard",
+      "ipAlias": "Lizard",
+      "remapKey": "WB_THREAT_53",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 472,
+        "move": "brawl",
+        "tint": 6101536
+      }
+    },
+    {
+      "rank": 52,
+      "id": "Vulture",
+      "workingName": "Vulture",
+      "ipAlias": "Vulture",
+      "remapKey": "WB_THREAT_52",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 486,
+        "move": "brawl",
+        "tint": 6298144
+      }
+    },
+    {
+      "rank": 51,
+      "id": "Electro",
+      "workingName": "Electro",
+      "ipAlias": "Electro",
+      "remapKey": "WB_THREAT_51",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 500,
+        "move": "brawl",
+        "tint": 6494752
+      }
+    },
+    {
+      "rank": 50,
+      "id": "TBD_ThreatRank_50",
+      "workingName": "TBD_ThreatRank_50",
+      "ipAlias": "TBD_ThreatRank_50",
+      "remapKey": "WB_THREAT_50",
+      "originalFace": true,
+      "screenshotGap": true,
+      "encounter": {
+        "hp": 514,
+        "move": "stub",
+        "tint": 6691360
+      }
+    },
+    {
+      "rank": 49,
+      "id": "TBD_ThreatRank_49",
+      "workingName": "TBD_ThreatRank_49",
+      "ipAlias": "TBD_ThreatRank_49",
+      "remapKey": "WB_THREAT_49",
+      "originalFace": true,
+      "screenshotGap": true,
+      "encounter": {
+        "hp": 528,
+        "move": "stub",
+        "tint": 6887968
+      }
+    },
+    {
+      "rank": 48,
+      "id": "TBD_ThreatRank_48",
+      "workingName": "TBD_ThreatRank_48",
+      "ipAlias": "TBD_ThreatRank_48",
+      "remapKey": "WB_THREAT_48",
+      "originalFace": true,
+      "screenshotGap": true,
+      "encounter": {
+        "hp": 542,
+        "move": "stub",
+        "tint": 7084576
+      }
+    },
+    {
+      "rank": 47,
+      "id": "TBD_ThreatRank_47",
+      "workingName": "TBD_ThreatRank_47",
+      "ipAlias": "TBD_ThreatRank_47",
+      "remapKey": "WB_THREAT_47",
+      "originalFace": true,
+      "screenshotGap": true,
+      "encounter": {
+        "hp": 556,
+        "move": "stub",
+        "tint": 7281184
+      }
+    },
+    {
+      "rank": 46,
+      "id": "TBD_ThreatRank_46",
+      "workingName": "TBD_ThreatRank_46",
+      "ipAlias": "TBD_ThreatRank_46",
+      "remapKey": "WB_THREAT_46",
+      "originalFace": true,
+      "screenshotGap": true,
+      "encounter": {
+        "hp": 570,
+        "move": "stub",
+        "tint": 7412256
+      }
+    },
+    {
+      "rank": 45,
+      "id": "Sandman",
+      "workingName": "Sandman",
+      "ipAlias": "Sandman",
+      "remapKey": "WB_THREAT_45",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 584,
+        "move": "brawl",
+        "tint": 7608864
+      }
+    },
+    {
+      "rank": 44,
+      "id": "Mysterio",
+      "workingName": "Mysterio",
+      "ipAlias": "Mysterio",
+      "remapKey": "WB_THREAT_44",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 598,
+        "move": "brawl",
+        "tint": 7805472
+      }
+    },
+    {
+      "rank": 43,
+      "id": "Kraven_the_Hunter",
+      "workingName": "Kraven the Hunter",
+      "ipAlias": "Kraven the Hunter",
+      "remapKey": "WB_THREAT_43",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 612,
+        "move": "brawl",
+        "tint": 8002080
+      }
+    },
+    {
+      "rank": 42,
+      "id": "Doctor_Octopus",
+      "workingName": "Doctor Octopus",
+      "ipAlias": "Doctor Octopus",
+      "remapKey": "WB_THREAT_42",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 626,
+        "move": "brawl",
+        "tint": 8198688
+      }
+    },
+    {
+      "rank": 41,
+      "id": "Green_Goblin",
+      "workingName": "Green Goblin",
+      "ipAlias": "Green Goblin",
+      "remapKey": "WB_THREAT_41",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 640,
+        "move": "brawl",
+        "tint": 8395296
+      }
+    },
+    {
+      "rank": 40,
+      "id": "Hobgoblin",
+      "workingName": "Hobgoblin",
+      "ipAlias": "Hobgoblin",
+      "remapKey": "WB_THREAT_40",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 654,
+        "move": "brawl",
+        "tint": 8591904
+      }
+    },
+    {
+      "rank": 39,
+      "id": "Venom",
+      "workingName": "Venom",
+      "ipAlias": "Venom",
+      "remapKey": "WB_THREAT_39",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 668,
+        "move": "brawl",
+        "tint": 8722976
+      }
+    },
+    {
+      "rank": 38,
+      "id": "Carnage",
+      "workingName": "Carnage",
+      "ipAlias": "Carnage",
+      "remapKey": "WB_THREAT_38",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 682,
+        "move": "brawl",
+        "tint": 8919584
+      }
+    },
+    {
+      "rank": 37,
+      "id": "Kingpin",
+      "workingName": "Kingpin",
+      "ipAlias": "Kingpin",
+      "remapKey": "WB_THREAT_37",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 696,
+        "move": "brawl",
+        "tint": 9116192
+      }
+    },
+    {
+      "rank": 36,
+      "id": "Bullseye",
+      "workingName": "Bullseye",
+      "ipAlias": "Bullseye",
+      "remapKey": "WB_THREAT_36",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 710,
+        "move": "brawl",
+        "tint": 9312800
+      }
+    },
+    {
+      "rank": 35,
+      "id": "Taskmaster",
+      "workingName": "Taskmaster",
+      "ipAlias": "Taskmaster",
+      "remapKey": "WB_THREAT_35",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 724,
+        "move": "brawl",
+        "tint": 9509408
+      }
+    },
+    {
+      "rank": 34,
+      "id": "Crossbones",
+      "workingName": "Crossbones",
+      "ipAlias": "Crossbones",
+      "remapKey": "WB_THREAT_34",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 738,
+        "move": "brawl",
+        "tint": 9706016
+      }
+    },
+    {
+      "rank": 33,
+      "id": "Baron_Zemo",
+      "workingName": "Baron Zemo",
+      "ipAlias": "Baron Zemo",
+      "remapKey": "WB_THREAT_33",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 752,
+        "move": "brawl",
+        "tint": 9902624
+      }
+    },
+    {
+      "rank": 32,
+      "id": "Red_Skull",
+      "workingName": "Red Skull",
+      "ipAlias": "Red Skull",
+      "remapKey": "WB_THREAT_32",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 766,
+        "move": "brawl",
+        "tint": 10033696
+      }
+    },
+    {
+      "rank": 31,
+      "id": "Loki",
+      "workingName": "Loki",
+      "ipAlias": "Loki",
+      "remapKey": "WB_THREAT_31",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 780,
+        "move": "brawl",
+        "tint": 10230304
+      }
+    },
+    {
+      "rank": 30,
+      "id": "Enchantress",
+      "workingName": "Enchantress",
+      "ipAlias": "Enchantress",
+      "remapKey": "WB_THREAT_30",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 794,
+        "move": "brawl",
+        "tint": 10426912
+      }
+    },
+    {
+      "rank": 29,
+      "id": "Executioner",
+      "workingName": "Executioner",
+      "ipAlias": "Executioner",
+      "remapKey": "WB_THREAT_29",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 808,
+        "move": "brawl",
+        "tint": 10623520
+      }
+    },
+    {
+      "rank": 28,
+      "id": "Absorbing_Man",
+      "workingName": "Absorbing Man",
+      "ipAlias": "Absorbing Man",
+      "remapKey": "WB_THREAT_28",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 822,
+        "move": "brawl",
+        "tint": 10820128
+      }
+    },
+    {
+      "rank": 27,
+      "id": "Titania",
+      "workingName": "Titania",
+      "ipAlias": "Titania",
+      "remapKey": "WB_THREAT_27",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 836,
+        "move": "brawl",
+        "tint": 11016736
+      }
+    },
+    {
+      "rank": 26,
+      "id": "Wrecker",
+      "workingName": "Wrecker",
+      "ipAlias": "Wrecker",
+      "remapKey": "WB_THREAT_26",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 850,
+        "move": "brawl",
+        "tint": 11213344
+      }
+    },
+    {
+      "rank": 25,
+      "id": "Thunderball",
+      "workingName": "Thunderball",
+      "ipAlias": "Thunderball",
+      "remapKey": "WB_THREAT_25",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 864,
+        "move": "brawl",
+        "tint": 11344416
+      }
+    },
+    {
+      "rank": 24,
+      "id": "Piledriver",
+      "workingName": "Piledriver",
+      "ipAlias": "Piledriver",
+      "remapKey": "WB_THREAT_24",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 878,
+        "move": "brawl",
+        "tint": 11541024
+      }
+    },
+    {
+      "rank": 23,
+      "id": "Bulldozer",
+      "workingName": "Bulldozer",
+      "ipAlias": "Bulldozer",
+      "remapKey": "WB_THREAT_23",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 892,
+        "move": "brawl",
+        "tint": 11737632
+      }
+    },
+    {
+      "rank": 22,
+      "id": "Mister_Hyde",
+      "workingName": "Mister Hyde",
+      "ipAlias": "Mister Hyde",
+      "remapKey": "WB_THREAT_22",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 906,
+        "move": "brawl",
+        "tint": 11934240
+      }
+    },
+    {
+      "rank": 21,
+      "id": "Grey_Gargoyle",
+      "workingName": "Grey Gargoyle",
+      "ipAlias": "Grey Gargoyle",
+      "remapKey": "WB_THREAT_21",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 920,
+        "move": "brawl",
+        "tint": 12130848
+      }
+    },
+    {
+      "rank": 20,
+      "id": "Radioactive_Man",
+      "workingName": "Radioactive Man",
+      "ipAlias": "Radioactive Man",
+      "remapKey": "WB_THREAT_20",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 934,
+        "move": "brawl",
+        "tint": 12327456
+      }
+    },
+    {
+      "rank": 19,
+      "id": "The_Leader",
+      "workingName": "The Leader",
+      "ipAlias": "The Leader",
+      "remapKey": "WB_THREAT_19",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 948,
+        "move": "brawl",
+        "tint": 12524064
+      }
+    },
+    {
+      "rank": 18,
+      "id": "Abomination",
+      "workingName": "Abomination",
+      "ipAlias": "Abomination",
+      "remapKey": "WB_THREAT_18",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 962,
+        "move": "heavy",
+        "tint": 12655136
+      }
+    },
+    {
+      "rank": 17,
+      "id": "Zzzax",
+      "workingName": "Zzzax",
+      "ipAlias": "Zzzax",
+      "remapKey": "WB_THREAT_17",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 976,
+        "move": "heavy",
+        "tint": 12851744
+      }
+    },
+    {
+      "rank": 16,
+      "id": "Bi_Beast",
+      "workingName": "Bi-Beast",
+      "ipAlias": "Bi-Beast",
+      "remapKey": "WB_THREAT_16",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 990,
+        "move": "heavy",
+        "tint": 13048352
+      }
+    },
+    {
+      "rank": 15,
+      "id": "Wendigo",
+      "workingName": "Wendigo",
+      "ipAlias": "Wendigo",
+      "remapKey": "WB_THREAT_15",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 1004,
+        "move": "heavy",
+        "tint": 13244960
+      }
+    },
+    {
+      "rank": 14,
+      "id": "Juggernaut",
+      "workingName": "Juggernaut",
+      "ipAlias": "Juggernaut",
+      "remapKey": "WB_THREAT_14",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 1018,
+        "move": "heavy",
+        "tint": 13441568
+      }
+    },
+    {
+      "rank": 13,
+      "id": "Magneto",
+      "workingName": "Magneto",
+      "ipAlias": "Magneto",
+      "remapKey": "WB_THREAT_13",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 1032,
+        "move": "heavy",
+        "tint": 13638176
+      }
+    },
+    {
+      "rank": 12,
+      "id": "Apocalypse",
+      "workingName": "Apocalypse",
+      "ipAlias": "Apocalypse",
+      "remapKey": "WB_THREAT_12",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 1046,
+        "move": "heavy",
+        "tint": 13834784
+      }
+    },
+    {
+      "rank": 11,
+      "id": "Super_Skrull",
+      "workingName": "Super-Skrull",
+      "ipAlias": "Super-Skrull",
+      "remapKey": "WB_THREAT_11",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 1060,
+        "move": "heavy",
+        "tint": 13965856
+      }
+    },
+    {
+      "rank": 10,
+      "id": "Annihilus",
+      "workingName": "Annihilus",
+      "ipAlias": "Annihilus",
+      "remapKey": "WB_THREAT_10",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 1074,
+        "move": "heavy",
+        "tint": 14162464
+      }
+    },
+    {
+      "rank": 9,
+      "id": "Terrax",
+      "workingName": "Terrax",
+      "ipAlias": "Terrax",
+      "remapKey": "WB_THREAT_09",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 1088,
+        "move": "heavy",
+        "tint": 14359072
+      }
+    },
+    {
+      "rank": 8,
+      "id": "Dormammu",
+      "workingName": "Dormammu",
+      "ipAlias": "Dormammu",
+      "remapKey": "WB_THREAT_08",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 1102,
+        "move": "heavy",
+        "tint": 14555680
+      }
+    },
+    {
+      "rank": 7,
+      "id": "Mephisto",
+      "workingName": "Mephisto",
+      "ipAlias": "Mephisto",
+      "remapKey": "WB_THREAT_07",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 1116,
+        "move": "heavy",
+        "tint": 14752288
+      }
+    },
+    {
+      "rank": 6,
+      "id": "Surtur",
+      "workingName": "Surtur",
+      "ipAlias": "Surtur",
+      "remapKey": "WB_THREAT_06",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 1130,
+        "move": "heavy",
+        "tint": 14948896
+      }
+    },
+    {
+      "rank": 5,
+      "id": "Thanos",
+      "workingName": "Thanos",
+      "ipAlias": "Thanos",
+      "remapKey": "WB_THREAT_05",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 1144,
+        "move": "cosmic",
+        "tint": 15145504
+      }
+    },
+    {
+      "rank": 4,
+      "id": "Doctor_Doom",
+      "workingName": "Doctor Doom",
+      "ipAlias": "Doctor Doom",
+      "remapKey": "WB_THREAT_04",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 1158,
+        "move": "cosmic",
+        "tint": 15276576
+      }
+    },
+    {
+      "rank": 3,
+      "id": "Galactus",
+      "workingName": "Galactus",
+      "ipAlias": "Galactus",
+      "remapKey": "WB_THREAT_03",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 1172,
+        "move": "cosmic",
+        "tint": 15473184
+      }
+    },
+    {
+      "rank": 2,
+      "id": "Molecule_Man",
+      "workingName": "Molecule Man",
+      "ipAlias": "Molecule Man",
+      "remapKey": "WB_THREAT_02",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 1186,
+        "move": "cosmic",
+        "tint": 15669792
+      }
+    },
+    {
+      "rank": 1,
+      "id": "Beyonder",
+      "workingName": "Beyonder",
+      "ipAlias": "Beyonder",
+      "remapKey": "WB_THREAT_01",
+      "originalFace": true,
+      "screenshotGap": false,
+      "encounter": {
+        "hp": 1200,
+        "move": "cosmic",
+        "tint": 15866400
+      }
+    }
+  ],
+  "cities": [
+    {
+      "cityId": "new-york",
+      "cityName": "New York",
+      "campaignOrder": 1,
+      "threatRank": null,
+      "bossId": "TBD_NY_CapitalBoss",
+      "workingName": "TBD_NY_CapitalBoss",
+      "ipAlias": "TBD_NY_CapitalBoss",
+      "remapKey": "WB_NY_CAPITAL",
+      "originalFace": true,
+      "postBoss": "Razorback",
+      "debugSelect": true,
+      "encounter": {
+        "hp": 540,
+        "move": "stub",
+        "tint": 3821632
+      }
+    },
+    {
+      "cityId": "los-angeles",
+      "cityName": "Los Angeles",
+      "campaignOrder": 48,
+      "threatRank": 70,
+      "bossId": "Toad",
+      "workingName": "Toad",
+      "ipAlias": "Toad",
+      "remapKey": "WB_THREAT_70",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_los-angeles",
+      "debugSelect": true,
+      "encounter": {
+        "hp": 234,
+        "move": "hop",
+        "tint": 2955808
+      }
+    },
+    {
+      "cityId": "chicago",
+      "cityName": "Chicago",
+      "campaignOrder": 9,
+      "threatRank": 69,
+      "bossId": "Stilt_Man",
+      "workingName": "Stilt-Man",
+      "ipAlias": "Stilt-Man",
+      "remapKey": "WB_THREAT_69",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_chicago",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 248,
+        "move": "stilt",
+        "tint": 3152416
+      }
+    },
+    {
+      "cityId": "houston",
+      "cityName": "Houston",
+      "campaignOrder": 18,
+      "threatRank": 68,
+      "bossId": "Leap_Frog",
+      "workingName": "Leap-Frog",
+      "ipAlias": "Leap-Frog",
+      "remapKey": "WB_THREAT_68",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_houston",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 262,
+        "move": "hop",
+        "tint": 3349024
+      }
+    },
+    {
+      "cityId": "boston",
+      "cityName": "Boston",
+      "campaignOrder": 0,
+      "threatRank": 67,
+      "bossId": "Trapster",
+      "workingName": "Trapster",
+      "ipAlias": "Trapster",
+      "remapKey": "WB_THREAT_67",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_boston",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 276,
+        "move": "paste",
+        "tint": 3480096
+      }
+    },
+    {
+      "cityId": "philadelphia",
+      "cityName": "Philadelphia",
+      "campaignOrder": 0,
+      "threatRank": 66,
+      "bossId": "Matador",
+      "workingName": "Matador",
+      "ipAlias": "Matador",
+      "remapKey": "WB_THREAT_66",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_philadelphia",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 290,
+        "move": "brawl",
+        "tint": 3676704
+      }
+    },
+    {
+      "cityId": "washington-dc",
+      "cityName": "Washington Dc",
+      "campaignOrder": 0,
+      "threatRank": 65,
+      "bossId": "Frog_Man",
+      "workingName": "Frog-Man",
+      "ipAlias": "Frog-Man",
+      "remapKey": "WB_THREAT_65",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_washington-dc",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 304,
+        "move": "hop",
+        "tint": 3873312
+      }
+    },
+    {
+      "cityId": "baltimore",
+      "cityName": "Baltimore",
+      "campaignOrder": 0,
+      "threatRank": 64,
+      "bossId": "Kangaroo",
+      "workingName": "Kangaroo",
+      "ipAlias": "Kangaroo",
+      "remapKey": "WB_THREAT_64",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_baltimore",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 318,
+        "move": "hop",
+        "tint": 4069920
+      }
+    },
+    {
+      "cityId": "pittsburgh",
+      "cityName": "Pittsburgh",
+      "campaignOrder": 0,
+      "threatRank": 63,
+      "bossId": "Big_Wheel",
+      "workingName": "Big Wheel",
+      "ipAlias": "Big Wheel",
+      "remapKey": "WB_THREAT_63",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_pittsburgh",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 332,
+        "move": "brawl",
+        "tint": 4266528
+      }
+    },
+    {
+      "cityId": "cleveland",
+      "cityName": "Cleveland",
+      "campaignOrder": 0,
+      "threatRank": 62,
+      "bossId": "Will_O_The_Wisp",
+      "workingName": "Will-O-The-Wisp",
+      "ipAlias": "Will-O-The-Wisp",
+      "remapKey": "WB_THREAT_62",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_cleveland",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 346,
+        "move": "brawl",
+        "tint": 4463136
+      }
+    },
+    {
+      "cityId": "detroit",
+      "cityName": "Detroit",
+      "campaignOrder": 0,
+      "threatRank": 61,
+      "bossId": "Spot",
+      "workingName": "Spot",
+      "ipAlias": "Spot",
+      "remapKey": "WB_THREAT_61",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_detroit",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 360,
+        "move": "brawl",
+        "tint": 4659744
+      }
+    },
+    {
+      "cityId": "milwaukee",
+      "cityName": "Milwaukee",
+      "campaignOrder": 0,
+      "threatRank": 60,
+      "bossId": "Shocker",
+      "workingName": "Shocker",
+      "ipAlias": "Shocker",
+      "remapKey": "WB_THREAT_60",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_milwaukee",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 374,
+        "move": "brawl",
+        "tint": 4790816
+      }
+    },
+    {
+      "cityId": "minneapolis",
+      "cityName": "Minneapolis",
+      "campaignOrder": 0,
+      "threatRank": 59,
+      "bossId": "Boomerang",
+      "workingName": "Boomerang",
+      "ipAlias": "Boomerang",
+      "remapKey": "WB_THREAT_59",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_minneapolis",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 388,
+        "move": "brawl",
+        "tint": 4987424
+      }
+    },
+    {
+      "cityId": "st-louis",
+      "cityName": "St Louis",
+      "campaignOrder": 0,
+      "threatRank": 58,
+      "bossId": "Beetle",
+      "workingName": "Beetle",
+      "ipAlias": "Beetle",
+      "remapKey": "WB_THREAT_58",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_st-louis",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 402,
+        "move": "brawl",
+        "tint": 5184032
+      }
+    },
+    {
+      "cityId": "kansas-city",
+      "cityName": "Kansas City",
+      "campaignOrder": 0,
+      "threatRank": 57,
+      "bossId": "Speed_Demon",
+      "workingName": "Speed Demon",
+      "ipAlias": "Speed Demon",
+      "remapKey": "WB_THREAT_57",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_kansas-city",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 416,
+        "move": "brawl",
+        "tint": 5380640
+      }
+    },
+    {
+      "cityId": "omaha",
+      "cityName": "Omaha",
+      "campaignOrder": 0,
+      "threatRank": 56,
+      "bossId": "Hydro_Man",
+      "workingName": "Hydro-Man",
+      "ipAlias": "Hydro-Man",
+      "remapKey": "WB_THREAT_56",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_omaha",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 430,
+        "move": "brawl",
+        "tint": 5577248
+      }
+    },
+    {
+      "cityId": "denver",
+      "cityName": "Denver",
+      "campaignOrder": 0,
+      "threatRank": 55,
+      "bossId": "Scorpion",
+      "workingName": "Scorpion",
+      "ipAlias": "Scorpion",
+      "remapKey": "WB_THREAT_55",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_denver",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 444,
+        "move": "brawl",
+        "tint": 5773856
+      }
+    },
+    {
+      "cityId": "oklahoma-city",
+      "cityName": "Oklahoma City",
+      "campaignOrder": 0,
+      "threatRank": 54,
+      "bossId": "Rhino",
+      "workingName": "Rhino",
+      "ipAlias": "Rhino",
+      "remapKey": "WB_THREAT_54",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_oklahoma-city",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 458,
+        "move": "brawl",
+        "tint": 5970464
+      }
+    },
+    {
+      "cityId": "dallas",
+      "cityName": "Dallas",
+      "campaignOrder": 0,
+      "threatRank": 53,
+      "bossId": "Lizard",
+      "workingName": "Lizard",
+      "ipAlias": "Lizard",
+      "remapKey": "WB_THREAT_53",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_dallas",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 472,
+        "move": "brawl",
+        "tint": 6101536
+      }
+    },
+    {
+      "cityId": "san-antonio",
+      "cityName": "San Antonio",
+      "campaignOrder": 0,
+      "threatRank": 52,
+      "bossId": "Vulture",
+      "workingName": "Vulture",
+      "ipAlias": "Vulture",
+      "remapKey": "WB_THREAT_52",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_san-antonio",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 486,
+        "move": "brawl",
+        "tint": 6298144
+      }
+    },
+    {
+      "cityId": "austin",
+      "cityName": "Austin",
+      "campaignOrder": 0,
+      "threatRank": 51,
+      "bossId": "Electro",
+      "workingName": "Electro",
+      "ipAlias": "Electro",
+      "remapKey": "WB_THREAT_51",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_austin",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 500,
+        "move": "brawl",
+        "tint": 6494752
+      }
+    },
+    {
+      "cityId": "new-orleans",
+      "cityName": "New Orleans",
+      "campaignOrder": 0,
+      "threatRank": 50,
+      "bossId": "TBD_ThreatRank_50",
+      "workingName": "TBD_ThreatRank_50",
+      "ipAlias": "TBD_ThreatRank_50",
+      "remapKey": "WB_THREAT_50",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_new-orleans",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 514,
+        "move": "stub",
+        "tint": 6691360
+      }
+    },
+    {
+      "cityId": "memphis",
+      "cityName": "Memphis",
+      "campaignOrder": 0,
+      "threatRank": 49,
+      "bossId": "TBD_ThreatRank_49",
+      "workingName": "TBD_ThreatRank_49",
+      "ipAlias": "TBD_ThreatRank_49",
+      "remapKey": "WB_THREAT_49",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_memphis",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 528,
+        "move": "stub",
+        "tint": 6887968
+      }
+    },
+    {
+      "cityId": "nashville",
+      "cityName": "Nashville",
+      "campaignOrder": 0,
+      "threatRank": 48,
+      "bossId": "TBD_ThreatRank_48",
+      "workingName": "TBD_ThreatRank_48",
+      "ipAlias": "TBD_ThreatRank_48",
+      "remapKey": "WB_THREAT_48",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_nashville",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 542,
+        "move": "stub",
+        "tint": 7084576
+      }
+    },
+    {
+      "cityId": "atlanta",
+      "cityName": "Atlanta",
+      "campaignOrder": 0,
+      "threatRank": 47,
+      "bossId": "TBD_ThreatRank_47",
+      "workingName": "TBD_ThreatRank_47",
+      "ipAlias": "TBD_ThreatRank_47",
+      "remapKey": "WB_THREAT_47",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_atlanta",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 556,
+        "move": "stub",
+        "tint": 7281184
+      }
+    },
+    {
+      "cityId": "charlotte",
+      "cityName": "Charlotte",
+      "campaignOrder": 0,
+      "threatRank": 46,
+      "bossId": "TBD_ThreatRank_46",
+      "workingName": "TBD_ThreatRank_46",
+      "ipAlias": "TBD_ThreatRank_46",
+      "remapKey": "WB_THREAT_46",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_charlotte",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 570,
+        "move": "stub",
+        "tint": 7412256
+      }
+    },
+    {
+      "cityId": "richmond",
+      "cityName": "Richmond",
+      "campaignOrder": 0,
+      "threatRank": 45,
+      "bossId": "Sandman",
+      "workingName": "Sandman",
+      "ipAlias": "Sandman",
+      "remapKey": "WB_THREAT_45",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_richmond",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 584,
+        "move": "brawl",
+        "tint": 7608864
+      }
+    },
+    {
+      "cityId": "raleigh",
+      "cityName": "Raleigh",
+      "campaignOrder": 0,
+      "threatRank": 44,
+      "bossId": "Mysterio",
+      "workingName": "Mysterio",
+      "ipAlias": "Mysterio",
+      "remapKey": "WB_THREAT_44",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_raleigh",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 598,
+        "move": "brawl",
+        "tint": 7805472
+      }
+    },
+    {
+      "cityId": "miami",
+      "cityName": "Miami",
+      "campaignOrder": 0,
+      "threatRank": 43,
+      "bossId": "Kraven_the_Hunter",
+      "workingName": "Kraven the Hunter",
+      "ipAlias": "Kraven the Hunter",
+      "remapKey": "WB_THREAT_43",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_miami",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 612,
+        "move": "brawl",
+        "tint": 8002080
+      }
+    },
+    {
+      "cityId": "tampa",
+      "cityName": "Tampa",
+      "campaignOrder": 0,
+      "threatRank": 42,
+      "bossId": "Doctor_Octopus",
+      "workingName": "Doctor Octopus",
+      "ipAlias": "Doctor Octopus",
+      "remapKey": "WB_THREAT_42",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_tampa",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 626,
+        "move": "brawl",
+        "tint": 8198688
+      }
+    },
+    {
+      "cityId": "orlando",
+      "cityName": "Orlando",
+      "campaignOrder": 0,
+      "threatRank": 41,
+      "bossId": "Green_Goblin",
+      "workingName": "Green Goblin",
+      "ipAlias": "Green Goblin",
+      "remapKey": "WB_THREAT_41",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_orlando",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 640,
+        "move": "brawl",
+        "tint": 8395296
+      }
+    },
+    {
+      "cityId": "jacksonville",
+      "cityName": "Jacksonville",
+      "campaignOrder": 0,
+      "threatRank": 40,
+      "bossId": "Hobgoblin",
+      "workingName": "Hobgoblin",
+      "ipAlias": "Hobgoblin",
+      "remapKey": "WB_THREAT_40",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_jacksonville",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 654,
+        "move": "brawl",
+        "tint": 8591904
+      }
+    },
+    {
+      "cityId": "birmingham",
+      "cityName": "Birmingham",
+      "campaignOrder": 0,
+      "threatRank": 39,
+      "bossId": "Venom",
+      "workingName": "Venom",
+      "ipAlias": "Venom",
+      "remapKey": "WB_THREAT_39",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_birmingham",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 668,
+        "move": "brawl",
+        "tint": 8722976
+      }
+    },
+    {
+      "cityId": "louisville",
+      "cityName": "Louisville",
+      "campaignOrder": 0,
+      "threatRank": 38,
+      "bossId": "Carnage",
+      "workingName": "Carnage",
+      "ipAlias": "Carnage",
+      "remapKey": "WB_THREAT_38",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_louisville",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 682,
+        "move": "brawl",
+        "tint": 8919584
+      }
+    },
+    {
+      "cityId": "indianapolis",
+      "cityName": "Indianapolis",
+      "campaignOrder": 0,
+      "threatRank": 37,
+      "bossId": "Kingpin",
+      "workingName": "Kingpin",
+      "ipAlias": "Kingpin",
+      "remapKey": "WB_THREAT_37",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_indianapolis",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 696,
+        "move": "brawl",
+        "tint": 9116192
+      }
+    },
+    {
+      "cityId": "columbus",
+      "cityName": "Columbus",
+      "campaignOrder": 0,
+      "threatRank": 36,
+      "bossId": "Bullseye",
+      "workingName": "Bullseye",
+      "ipAlias": "Bullseye",
+      "remapKey": "WB_THREAT_36",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_columbus",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 710,
+        "move": "brawl",
+        "tint": 9312800
+      }
+    },
+    {
+      "cityId": "cincinnati",
+      "cityName": "Cincinnati",
+      "campaignOrder": 0,
+      "threatRank": 35,
+      "bossId": "Taskmaster",
+      "workingName": "Taskmaster",
+      "ipAlias": "Taskmaster",
+      "remapKey": "WB_THREAT_35",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_cincinnati",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 724,
+        "move": "brawl",
+        "tint": 9509408
+      }
+    },
+    {
+      "cityId": "las-vegas",
+      "cityName": "Las Vegas",
+      "campaignOrder": 0,
+      "threatRank": 34,
+      "bossId": "Crossbones",
+      "workingName": "Crossbones",
+      "ipAlias": "Crossbones",
+      "remapKey": "WB_THREAT_34",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_las-vegas",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 738,
+        "move": "brawl",
+        "tint": 9706016
+      }
+    },
+    {
+      "cityId": "phoenix",
+      "cityName": "Phoenix",
+      "campaignOrder": 0,
+      "threatRank": 33,
+      "bossId": "Baron_Zemo",
+      "workingName": "Baron Zemo",
+      "ipAlias": "Baron Zemo",
+      "remapKey": "WB_THREAT_33",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_phoenix",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 752,
+        "move": "brawl",
+        "tint": 9902624
+      }
+    },
+    {
+      "cityId": "albuquerque",
+      "cityName": "Albuquerque",
+      "campaignOrder": 0,
+      "threatRank": 32,
+      "bossId": "Red_Skull",
+      "workingName": "Red Skull",
+      "ipAlias": "Red Skull",
+      "remapKey": "WB_THREAT_32",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_albuquerque",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 766,
+        "move": "brawl",
+        "tint": 10033696
+      }
+    },
+    {
+      "cityId": "salt-lake-city",
+      "cityName": "Salt Lake City",
+      "campaignOrder": 0,
+      "threatRank": 31,
+      "bossId": "Loki",
+      "workingName": "Loki",
+      "ipAlias": "Loki",
+      "remapKey": "WB_THREAT_31",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_salt-lake-city",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 780,
+        "move": "brawl",
+        "tint": 10230304
+      }
+    },
+    {
+      "cityId": "seattle",
+      "cityName": "Seattle",
+      "campaignOrder": 0,
+      "threatRank": 30,
+      "bossId": "Enchantress",
+      "workingName": "Enchantress",
+      "ipAlias": "Enchantress",
+      "remapKey": "WB_THREAT_30",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_seattle",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 794,
+        "move": "brawl",
+        "tint": 10426912
+      }
+    },
+    {
+      "cityId": "portland",
+      "cityName": "Portland",
+      "campaignOrder": 0,
+      "threatRank": 29,
+      "bossId": "Executioner",
+      "workingName": "Executioner",
+      "ipAlias": "Executioner",
+      "remapKey": "WB_THREAT_29",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_portland",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 808,
+        "move": "brawl",
+        "tint": 10623520
+      }
+    },
+    {
+      "cityId": "san-francisco",
+      "cityName": "San Francisco",
+      "campaignOrder": 0,
+      "threatRank": 28,
+      "bossId": "Absorbing_Man",
+      "workingName": "Absorbing Man",
+      "ipAlias": "Absorbing Man",
+      "remapKey": "WB_THREAT_28",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_san-francisco",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 822,
+        "move": "brawl",
+        "tint": 10820128
+      }
+    },
+    {
+      "cityId": "oakland",
+      "cityName": "Oakland",
+      "campaignOrder": 0,
+      "threatRank": 27,
+      "bossId": "Titania",
+      "workingName": "Titania",
+      "ipAlias": "Titania",
+      "remapKey": "WB_THREAT_27",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_oakland",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 836,
+        "move": "brawl",
+        "tint": 11016736
+      }
+    },
+    {
+      "cityId": "san-jose",
+      "cityName": "San Jose",
+      "campaignOrder": 0,
+      "threatRank": 26,
+      "bossId": "Wrecker",
+      "workingName": "Wrecker",
+      "ipAlias": "Wrecker",
+      "remapKey": "WB_THREAT_26",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_san-jose",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 850,
+        "move": "brawl",
+        "tint": 11213344
+      }
+    },
+    {
+      "cityId": "sacramento",
+      "cityName": "Sacramento",
+      "campaignOrder": 0,
+      "threatRank": 25,
+      "bossId": "Thunderball",
+      "workingName": "Thunderball",
+      "ipAlias": "Thunderball",
+      "remapKey": "WB_THREAT_25",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_sacramento",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 864,
+        "move": "brawl",
+        "tint": 11344416
+      }
+    },
+    {
+      "cityId": "san-diego",
+      "cityName": "San Diego",
+      "campaignOrder": 0,
+      "threatRank": 24,
+      "bossId": "Piledriver",
+      "workingName": "Piledriver",
+      "ipAlias": "Piledriver",
+      "remapKey": "WB_THREAT_24",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_san-diego",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 878,
+        "move": "brawl",
+        "tint": 11541024
+      }
+    },
+    {
+      "cityId": "huntsville",
+      "cityName": "Huntsville",
+      "campaignOrder": 0,
+      "threatRank": 23,
+      "bossId": "Bulldozer",
+      "workingName": "Bulldozer",
+      "ipAlias": "Bulldozer",
+      "remapKey": "WB_THREAT_23",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_huntsville",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 892,
+        "move": "brawl",
+        "tint": 11737632
+      }
+    },
+    {
+      "cityId": "boise",
+      "cityName": "Boise",
+      "campaignOrder": 0,
+      "threatRank": 22,
+      "bossId": "Mister_Hyde",
+      "workingName": "Mister Hyde",
+      "ipAlias": "Mister Hyde",
+      "remapKey": "WB_THREAT_22",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_boise",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 906,
+        "move": "brawl",
+        "tint": 11934240
+      }
+    },
+    {
+      "cityId": "des-moines",
+      "cityName": "Des Moines",
+      "campaignOrder": 0,
+      "threatRank": 21,
+      "bossId": "Grey_Gargoyle",
+      "workingName": "Grey Gargoyle",
+      "ipAlias": "Grey Gargoyle",
+      "remapKey": "WB_THREAT_21",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_des-moines",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 920,
+        "move": "brawl",
+        "tint": 12130848
+      }
+    },
+    {
+      "cityId": "wichita",
+      "cityName": "Wichita",
+      "campaignOrder": 0,
+      "threatRank": 20,
+      "bossId": "Radioactive_Man",
+      "workingName": "Radioactive Man",
+      "ipAlias": "Radioactive Man",
+      "remapKey": "WB_THREAT_20",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_wichita",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 934,
+        "move": "brawl",
+        "tint": 12327456
+      }
+    },
+    {
+      "cityId": "billings",
+      "cityName": "Billings",
+      "campaignOrder": 0,
+      "threatRank": 19,
+      "bossId": "The_Leader",
+      "workingName": "The Leader",
+      "ipAlias": "The Leader",
+      "remapKey": "WB_THREAT_19",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_billings",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 948,
+        "move": "brawl",
+        "tint": 12524064
+      }
+    },
+    {
+      "cityId": "manchester-nh",
+      "cityName": "Manchester Nh",
+      "campaignOrder": 0,
+      "threatRank": 18,
+      "bossId": "Abomination",
+      "workingName": "Abomination",
+      "ipAlias": "Abomination",
+      "remapKey": "WB_THREAT_18",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_manchester-nh",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 962,
+        "move": "heavy",
+        "tint": 12655136
+      }
+    },
+    {
+      "cityId": "newark",
+      "cityName": "Newark",
+      "campaignOrder": 0,
+      "threatRank": 17,
+      "bossId": "Zzzax",
+      "workingName": "Zzzax",
+      "ipAlias": "Zzzax",
+      "remapKey": "WB_THREAT_17",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_newark",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 976,
+        "move": "heavy",
+        "tint": 12851744
+      }
+    },
+    {
+      "cityId": "fargo",
+      "cityName": "Fargo",
+      "campaignOrder": 0,
+      "threatRank": 16,
+      "bossId": "Bi_Beast",
+      "workingName": "Bi-Beast",
+      "ipAlias": "Bi-Beast",
+      "remapKey": "WB_THREAT_16",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_fargo",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 990,
+        "move": "heavy",
+        "tint": 13048352
+      }
+    },
+    {
+      "cityId": "providence",
+      "cityName": "Providence",
+      "campaignOrder": 0,
+      "threatRank": 15,
+      "bossId": "Wendigo",
+      "workingName": "Wendigo",
+      "ipAlias": "Wendigo",
+      "remapKey": "WB_THREAT_15",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_providence",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 1004,
+        "move": "heavy",
+        "tint": 13244960
+      }
+    },
+    {
+      "cityId": "sioux-falls",
+      "cityName": "Sioux Falls",
+      "campaignOrder": 0,
+      "threatRank": 14,
+      "bossId": "Juggernaut",
+      "workingName": "Juggernaut",
+      "ipAlias": "Juggernaut",
+      "remapKey": "WB_THREAT_14",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_sioux-falls",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 1018,
+        "move": "heavy",
+        "tint": 13441568
+      }
+    },
+    {
+      "cityId": "burlington",
+      "cityName": "Burlington",
+      "campaignOrder": 0,
+      "threatRank": 13,
+      "bossId": "Magneto",
+      "workingName": "Magneto",
+      "ipAlias": "Magneto",
+      "remapKey": "WB_THREAT_13",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_burlington",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 1032,
+        "move": "heavy",
+        "tint": 13638176
+      }
+    },
+    {
+      "cityId": "charleston-wv",
+      "cityName": "Charleston Wv",
+      "campaignOrder": 0,
+      "threatRank": 12,
+      "bossId": "Apocalypse",
+      "workingName": "Apocalypse",
+      "ipAlias": "Apocalypse",
+      "remapKey": "WB_THREAT_12",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_charleston-wv",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 1046,
+        "move": "heavy",
+        "tint": 13834784
+      }
+    },
+    {
+      "cityId": "cheyenne",
+      "cityName": "Cheyenne",
+      "campaignOrder": 0,
+      "threatRank": 11,
+      "bossId": "Super_Skrull",
+      "workingName": "Super-Skrull",
+      "ipAlias": "Super-Skrull",
+      "remapKey": "WB_THREAT_11",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_cheyenne",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 1060,
+        "move": "heavy",
+        "tint": 13965856
+      }
+    },
+    {
+      "cityId": "wilmington",
+      "cityName": "Wilmington",
+      "campaignOrder": 0,
+      "threatRank": 10,
+      "bossId": "Annihilus",
+      "workingName": "Annihilus",
+      "ipAlias": "Annihilus",
+      "remapKey": "WB_THREAT_10",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_wilmington",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 1074,
+        "move": "heavy",
+        "tint": 14162464
+      }
+    },
+    {
+      "cityId": "portland-me",
+      "cityName": "Portland Me",
+      "campaignOrder": 0,
+      "threatRank": 9,
+      "bossId": "Terrax",
+      "workingName": "Terrax",
+      "ipAlias": "Terrax",
+      "remapKey": "WB_THREAT_09",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_portland-me",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 1088,
+        "move": "heavy",
+        "tint": 14359072
+      }
+    },
+    {
+      "cityId": "hartford",
+      "cityName": "Hartford",
+      "campaignOrder": 0,
+      "threatRank": 8,
+      "bossId": "Dormammu",
+      "workingName": "Dormammu",
+      "ipAlias": "Dormammu",
+      "remapKey": "WB_THREAT_08",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_hartford",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 1102,
+        "move": "heavy",
+        "tint": 14555680
+      }
+    },
+    {
+      "cityId": "columbia-sc",
+      "cityName": "Columbia Sc",
+      "campaignOrder": 0,
+      "threatRank": 7,
+      "bossId": "Mephisto",
+      "workingName": "Mephisto",
+      "ipAlias": "Mephisto",
+      "remapKey": "WB_THREAT_07",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_columbia-sc",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 1116,
+        "move": "heavy",
+        "tint": 14752288
+      }
+    },
+    {
+      "cityId": "jackson-ms",
+      "cityName": "Jackson Ms",
+      "campaignOrder": 0,
+      "threatRank": 6,
+      "bossId": "Surtur",
+      "workingName": "Surtur",
+      "ipAlias": "Surtur",
+      "remapKey": "WB_THREAT_06",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_jackson-ms",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 1130,
+        "move": "heavy",
+        "tint": 14948896
+      }
+    },
+    {
+      "cityId": "little-rock",
+      "cityName": "Little Rock",
+      "campaignOrder": 0,
+      "threatRank": 5,
+      "bossId": "Thanos",
+      "workingName": "Thanos",
+      "ipAlias": "Thanos",
+      "remapKey": "WB_THREAT_05",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_little-rock",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 1144,
+        "move": "cosmic",
+        "tint": 15145504
+      }
+    },
+    {
+      "cityId": "virginia-beach",
+      "cityName": "Virginia Beach",
+      "campaignOrder": 0,
+      "threatRank": 4,
+      "bossId": "Doctor_Doom",
+      "workingName": "Doctor Doom",
+      "ipAlias": "Doctor Doom",
+      "remapKey": "WB_THREAT_04",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_virginia-beach",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 1158,
+        "move": "cosmic",
+        "tint": 15276576
+      }
+    },
+    {
+      "cityId": "tulsa",
+      "cityName": "Tulsa",
+      "campaignOrder": 0,
+      "threatRank": 3,
+      "bossId": "Galactus",
+      "workingName": "Galactus",
+      "ipAlias": "Galactus",
+      "remapKey": "WB_THREAT_03",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_tulsa",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 1172,
+        "move": "cosmic",
+        "tint": 15473184
+      }
+    },
+    {
+      "cityId": "honolulu",
+      "cityName": "Honolulu",
+      "campaignOrder": 49,
+      "threatRank": 2,
+      "bossId": "Molecule_Man",
+      "workingName": "Molecule Man",
+      "ipAlias": "Molecule Man",
+      "remapKey": "WB_THREAT_02",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_honolulu",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 1186,
+        "move": "cosmic",
+        "tint": 15669792
+      }
+    },
+    {
+      "cityId": "anchorage",
+      "cityName": "Anchorage",
+      "campaignOrder": 50,
+      "threatRank": 1,
+      "bossId": "Beyonder",
+      "workingName": "Beyonder",
+      "ipAlias": "Beyonder",
+      "remapKey": "WB_THREAT_01",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_anchorage",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 1200,
+        "move": "cosmic",
+        "tint": 15866400
+      }
+    },
+    {
+      "cityId": "charleston-sc",
+      "cityName": "Charleston, SC",
+      "campaignOrder": 39,
+      "threatRank": null,
+      "bossId": "TBD_CharlestonSC_CapitalBoss",
+      "workingName": "Tide Deacon",
+      "ipAlias": "Tide Deacon",
+      "remapKey": "WB_CITY_CHARLESTON_SC",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_charleston-sc",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 640,
+        "move": "tide",
+        "tint": 3054192
+      }
+    },
+    {
+      "cityId": "bridgeport",
+      "cityName": "Bridgeport",
+      "campaignOrder": 40,
+      "threatRank": null,
+      "bossId": "TBD_Bridgeport_CapitalBoss",
+      "workingName": "Sound Warden",
+      "ipAlias": "Sound Warden",
+      "remapKey": "WB_CITY_BRIDGEPORT",
+      "originalFace": true,
+      "postBoss": "PostBossBeat_bridgeport",
+      "debugSelect": false,
+      "encounter": {
+        "hp": 660,
+        "move": "spark",
+        "tint": 1784754
+      }
+    }
+  ]
+}

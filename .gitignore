@@ -1,0 +1,37 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.local
+dotenv-maps.env
+
+# OSM dump sidecars (playable packs stay in public/maps/*.json)
+public/maps/*.geojson
+
+# Google/OSM tile dumps — CityRefs is notes only, never scraped imagery
+Docs/CityRefs/**/*.jpg
+Docs/CityRefs/**/*.jpeg
+Docs/CityRefs/**/*.png
+Docs/CityRefs/**/*.webp
+Docs/CityRefs/**/tiles/
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

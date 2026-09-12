@@ -1,0 +1,21 @@
+{
+  "name": "titan-streets",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host --port 47331",
+    "build": "tsc && vite build",
+    "preview": "vite preview --host --port 47331",
+    "maps": "node scripts/fetch-osm.mjs",
+    "export:ue": "npx --yes tsx scripts/export-ue-port-data.mjs"
+  },
+  "devDependencies": {
+    "@types/three": "^0.185.4",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "three": "^0.182.0"
+  }
+}
