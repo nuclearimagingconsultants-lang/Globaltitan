@@ -13,7 +13,7 @@ Titan Streets stays on **Three.js**. This is the city chunk contract Ces sent, i
 | Look-ahead | Player XZ + velocity × **1.15 s**. Leaps / air use **2.2 s** so the landing block preloads. |
 | Near (≤ 160 m) | Full physics + NPC colliders. Simple AABB only. |
 | Mid | Visuals. No physics. |
-| Far | Impostor tiles + **skyline shell**, always loaded (~380 m ring) |
+| Far | Impostor tiles + **skyline shell** (48 boxes, two rings ~380 m / ~470 m) |
 | Unload | Hide/recycle the chunk. **Smash deltas** (hp / destroyed) are stored and reapplied on reload. Deltas older than **3 min** time-heal and are dropped. |
 
 Plaza chunk `0,0` never drops physics so the dungeon door and Banner kiosks stay solid.
