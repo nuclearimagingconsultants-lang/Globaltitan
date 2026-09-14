@@ -2,7 +2,7 @@
 
 Three.js only. No engine migrate. The image is sold with lighting, a small post stack, animation, and VFX — not raw polycount. The frame is protected with LODs, instancing, pools, dynamic resolution, and a lag safety net. Unity / Godot checklist items map in `LOOK.md`.
 
-Target: **~60 fps** idle / empty street, **≥45 fps** in fights and leaps.
+Target: **~60 fps** idle / empty street, **≥30 fps** (aim 45–60) in fights on RTX 3050-class laptops.
 
 ## Look
 
@@ -10,67 +10,70 @@ Post lives in `src/systems/PostStack.ts` (EffectComposer). Quality gates each pa
 
 | Pass | Role | On |
 | --- | --- | --- |
-| Color grade | Crush, lift/gain, sat, vignette. Bold warm/green street. | Medium+ |
-| Bloom | Unreal bloom | High / Cinematic only |
+| Color grade | Crush, lift/gain, sat, vignette, aerial haze | Medium+ |
+| Bloom | Unreal bloom (lean on Medium) | Medium / High / Cinematic |
 | SSAO | Contact darkening | High / Cinematic |
-| Rim | Cool back light opposite the sun | High / Cinematic |
-| Hulk motion blur | Afterimage, only while raging or charging | Cinematic + titan rush |
+| Rim | Cool back light opposite the sun | Medium+ |
+| Hulk motion blur | Afterimage, only while raging or charging | High+ titan rush |
+| Sky dome | Gradient + sun disc, scaled inside `farClip` | Always |
+| Distance fog | `fogRange(farClip)` — far at 94% of clip | Always (mesh city) |
 
-Smash VFX: `SmashFx` is a **pre-warmed pool** (160 bits / 16 rings). `DebrisPool` is **300** pre-fractured shards, reused. Healthy shards **sleep at 2 s** (physics stop, stay visible) and **delete at 6 s**. Under hitch they vanish in ~0.28 s. Skipped entirely when FrameGuard is overloaded. No runtime fracture. Charge / leap does **not** spawn extra particles.
+Smash VFX: `SmashFx` is a **pre-warmed pool** (160 bits / 16 rings). `DebrisPool` is **300** pre-fractured shards, reused. Healthy shards **sleep at 2 s** and **delete at 6 s**. Under hitch they vanish in ~0.28 s. Skipped entirely when FrameGuard is overloaded. No runtime fracture.
 
-Shaders compile from a **dummy lambert/phong/basic kit at boot**. The live NY scene is never passed to `renderer.compile`.
+Shaders compile from a **dummy kit at boot**. The live NY scene is never passed to `renderer.compile`. **No MeshPhysical `transmission`.**
 
 ## Speed
 
-- **Instancing** — towers, cornices, lamps, props share `InstancedMesh`. Frustum culled.
-- **LODs** — near = full lots + physics; mid = visuals; far = impostor tiles + skyline shell (`STREAMING.md`).
-- **AI LOD** — `EnemyDirector`: full approach brain **< 50 m**, cheap walk **< 200 m**, asleep beyond. Razorback is exempt. Tunable in `APPROACH.fullBrainM` / `cheapBrainM`.
+- **Instancing** — towers, cornices, lamps, street dressing, crowd. Frustum culled.
+- **LODs** — near = full lots + physics; mid = visuals; far = impostor tiles + 48-box skyline (`STREAMING.md`).
+- **AI LOD** — `EnemyDirector`: full approach brain **< 50 m**, cheap walk **< 200 m**, asleep beyond.
 - **Colliders** — AABB only, and only on **near** chunks.
-- **Shadows** — off below High. When on, ortho distance follows `shadowDist` (80–120 m), 1024 map.
-- **Dynamic render scale** — composer / pixel budget scales with the preset and the frame guard. Floor **70%**.
+- **Shadows** — off below High. High/Cinematic: PCF soft, 1024 map, ortho follows the player (`shadowDist` 100–120 m).
+- **Dynamic render scale** — composer / pixel budget. Floor **50%**.
 - **Debris** — pooled, hard cap **300**. Sleep 2 s / delete 6 s. Skipped under load.
-- **Lots / lamps** — OSM graph lots cap **260**, placed over frames (spawn neighborhood first). Lamps **140**. Traffic **6** cars.
-- **Chunk spawns** — max **2** chunk ops / frame when healthy, **1** under load. Impostor sculpt spread over **3–5 frames**. Shared box geometry.
-- **Atmosphere** — fog object reused, lights at ~4 Hz. No `new Fog` per frame. Day hemi ~1.85 / sun ~2.25. Open-Meteo mixes in cloud/rain.
-- **Far clip** — quality `farClip` only (Low 280 m). No 1100 m OSM override.
+- **Lots** — 3–4 packed buildings per block. Street dressing instanced (dumpsters / bollards / parked cars).
+- **Traffic / crowd** — NY up to 14 moving cars + 28 parked instances; curb crowd cap 48.
+- **Chunk spawns** — max **2** chunk ops / frame when healthy, **1** under load.
+- **Atmosphere** — fog object reused, lights at ~4 Hz. Fog far tracks `farClip` so the horizon is haze, not a black void.
+- **Far clip** — Low 520 / Medium 640 / High 780 / Cinematic 860.
 
-The render loop **presents at most ~60 Hz** (`15.2 ms` gate) so an uncapped display cannot busy-spin the main thread. FrameGuard still measures presented-frame CPU time.
-
-HUD / minimap / pin collect run at **~7 Hz** play, **~4 Hz** on the full map. Street strokes batch by kind (one path per layer).
+The render loop **presents at most ~60 Hz** (`15.2 ms` gate). FrameGuard still measures presented-frame CPU time.
 
 ## If it lags — P0 emergency net
 
-`FrameGuard` runs on **every** preset (not only Auto). HUD city chip shows live fps.
+`FrameGuard` runs on **every** preset.
 
-If a frame sits **> 18 ms for 30 consecutive frames**:
+If a frame sits **> 18 ms for 6 consecutive frames**:
 
-1. Drop render scale by **10%** (floor **70%** of the preset)
-2. Halve particles (`particleMul = 0.5`); skip smash debris while overloaded
-3. Shrink stream load radius **300 → 220 m**; **1** chunk op / frame
-4. Cut post (bloom / SSAO / motion blur / shadows)
+1. Drop render scale by **15%** (floor **50%** of the preset)
+2. Halve particles; skip smash debris while overloaded
+3. Shrink stream load radius **→ 220 m**; **1** chunk op / frame
+4. Cut post (bloom / SSAO / motion blur)
 
-A single hitch **> 18 ms** still throttles debris (short life / skip) without waiting for the 30-frame dynres step.
-
-Hub lots **pump over frames** (nearby first, ~4–6 lots / frame). Opening the map (**M**) skips the 3D present. Overlay screens no longer blank pointer-events for 280 ms.
+A single hitch **> 18 ms** still throttles debris without waiting for the dynres step.
 
 If the frame sits **< 14 ms** with no slow streak, scale and radius creep back.
 
-Low is the default panic button: 0.70 scale, no post, **220 m** load (already at the emergency radius).
+**Low** is the panic button: 0.70 scale, no post, no shadows. City density, sky, and fog stay on.
 
 ## Quality menu
 
-Pause → **Settings** → Quality. **Default is Low.**
+Pause → **Settings** → Quality. **Default is Medium** (laptop visual target). Existing Low saves bump to Medium once (`titan-streets-look-v1`).
 
 | Preset | Intent |
 | --- | --- |
-| Auto | Canonical 300 / 400 m stream. Scale creeps; 30×18 ms net still owns it. |
-| Low | Default snappy. No post, 220 m load, pooled debris. |
-| Medium | Grade only, no bloom/shadows. 300 / 400 m. Raise from Low when fps stays near 60. |
-| High | SSAO, rim, bloom, 100 m shadows. Safety net still owns scale. |
-| Cinematic | All post + Hulk motion blur. 300 debris. |
+| Auto | Same as Medium look. FrameGuard owns scale. |
+| Low | Freeze-safe. No bloom/SSAO/shadows. Far 520. |
+| Medium | Grade + lean bloom, far 640, shadows off. RTX 3050 target. |
+| High | SSAO, rim, bloom, 100 m shadows. Far 780. |
+| Cinematic | All post + Hulk motion blur. Far 860. Shadows 120 m. |
 
-Saved on `settings.quality` (`titan-streets-save-v2`). Existing Medium saves snap to Low once when the legend field is first migrated.
+Saved on `settings.quality` (`titan-streets-save-v2`).
 
 ## Hub city
 
-The skeleton is wired on **New York** first (and follows you to other capitals). Feature systems — Ces keyboard, five forms, jobs, bestiary, dungeon zombies — stay on the same renderer. Quality must not disable them; it only changes how expensive the frame is.
+The skeleton is wired on **New York** first (and follows you to other capitals). Feature systems — Ces keyboard, five forms, jobs, bestiary, Crime Wave, dungeon zombies — stay on the same renderer. Quality must not disable them; it only changes how expensive the frame is.
+
+## Crime Wave
+
+Accept from the quest board (`cw-*`). HUD mission line shows the active contact. Smash that connects (crime / building / car) advances one objective, gated at **1.35 s** so combos do not skip the whole job.

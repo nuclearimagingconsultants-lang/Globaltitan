@@ -391,10 +391,6 @@ export class NeighborhoodSystem {
     if (scene.background instanceof THREE.Color) scene.background.lerp(this.blend.sky, k);
     if (scene.fog instanceof THREE.Fog) {
       scene.fog.color.lerp(this.blend.fog, k);
-      const near = this.district === District.Villains ? 36 : this.district === District.Heroes ? 48 : theme.night ? 40 : 55;
-      const far = this.district === District.Villains ? 150 : this.district === District.Heroes ? 175 : theme.night ? 150 : 190;
-      scene.fog.near += (near - scene.fog.near) * k;
-      scene.fog.far += (far - scene.fog.far) * k;
     }
     hemi.color.lerp(this.blend.hemi, k);
     hemi.groundColor.lerp(this.blend.ground, k);

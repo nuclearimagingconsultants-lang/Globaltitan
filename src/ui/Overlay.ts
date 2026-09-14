@@ -1240,9 +1240,14 @@ export class Overlay {
   renderQuests(save: SaveData): void {
     this.save = save;
     const active = save.activeQuestId ? questById(save.activeQuestId) : undefined;
+    const cwActive = save.activeQuestId ? CRIME_WAVE_CONTACTS.find((q) => q.id === save.activeQuestId) : undefined;
     this.setText(
       "#quest-active",
-      active ? `On the job: ${active.name} (${save.questProgress}/${active.goal})` : "No active quest. Take a job.",
+      active
+        ? `On the job: ${active.name} (${save.questProgress}/${active.goal})`
+        : cwActive
+          ? `Crime Wave: ${cwActive.title} (${save.questProgress}/${cwActive.objectives.length})`
+          : "No active quest. Take a job.",
     );
     const board = this.root.querySelector("#quest-board");
     if (!board) return;
@@ -1256,7 +1261,7 @@ export class Overlay {
             : st === "locked"
               ? "Locked"
               : "Take job";
-      const extra = st === "active" ? `${save.questProgress}/${q.goal}` : `$${q.rewardCash} Â· ${q.rewardXp} XP`;
+    const extra = st === "active" ? `${save.questProgress}/${q.goal}` : `$${q.rewardCash} · ${q.rewardXp} XP`;
       return `<article class="quest-card ${st}">
         <p class="eyebrow">${q.tag}</p>
         <h3>${q.name}</h3>
@@ -1273,7 +1278,7 @@ export class Overlay {
       return `<article class="quest-card crime-wave ${st}"><p class="eyebrow">${q.contact} · ${q.archetype}</p><h3>${q.title}</h3><p>${q.blurb}</p><p class="lock">${extra}</p><div class="actions"><button type="button" class="cta" data-quest="${q.id}" ${st === "open" ? "" : "disabled"}>${label}</button></div></article>`;
     }).join("");
     const drop = this.root.querySelector<HTMLButtonElement>("#btn-abandon");
-    if (drop) drop.hidden = !active;
+    if (drop) drop.hidden = !active && !cwActive;
   }
 
   private setBar(sel: string, t: number): void {
@@ -1846,7 +1851,7 @@ export class Overlay {
             <b>X / N / T</b><span>Sightfire (X), Willforge (N), Hushvoice (T). One borrowed power at a time. Bruce: X zooms only. N/T off.</span>
             <b>B / K / U / J</b><span>Boxing / Karate / Judo / Jiu-jitsu. Same key again = Savage brawl. 0.3s stance change + HUD icon. Mix three styles in one combo to fill Rage faster. Fixit boxes faster. Maestro cannot use Jiu-jitsu. Red Karate heavies burn.</span>
             <b>Bestiary</b><span>Pause or the HUD Bestiary button. Party of 3. Stage 2 at Lv16 or 10 wins. Stage 3 at 32 or a boss kill.</span>
-            <b>Quality</b><span>Pause â†’ Settings. Default is Low. Dynamic resolution drops 10% after 30 frames over 18 ms (floor 70%). Load radius 300 â†’ 220 under load. Debris cap 300, sleep 2s, delete 6s. Dummy shaders prewarm at boot â€” the full NY scene is never compiled on the tick.</span>
+            <b>Quality</b><span>Pause → Settings. Default is Medium (laptop visual: grade + lean bloom). FrameGuard drops scale after slow frames (floor 50%) and cuts post. Low is the freeze button. Dummy shaders prewarm at boot — the full NY scene is never compiled on the tick. No transmission SSS.</span>
             <b>Controller</b><span>Optional. Left stick = move (same as arrows). Right stick = look (same as WASD). Face: jump / smash / grab / interact. LB form, RB sprint, LT brace, RT Shift-hold rip, Select phone, Start pause. Off in Settings. WASD-classic move is rejected â€” never the default.</span>
             <b>Feel / Balance</b><span>Settings â†’ Control feel (Default = live Keyboard_Only holds, Relaxed shorter, Tight longer). Settings â†’ Balance: Legacy (default, live numbers) or Worldbreaker_v1 (Anger Loop overlay). Additive only. Does not rename the app.</span>
             <b>1â€“9 Bruce</b><span>Scanner, Tranq, EMP, Hack, Adrenaline, Shield, Decoy, Repair, Anger Trigger (instant Hulk, double damage 20s).</span>
@@ -1874,7 +1879,7 @@ export class Overlay {
           <div id="quality-presets" class="quality-presets">
             ${QUALITY_IDS.map((id) => `<button type="button" class="hud-btn" data-quality="${id}">${QUALITY[id].label}</button>`).join("")}
           </div>
-          <p class="lock" id="quality-hint">Default Low. Dynamic scale if a frame runs long. Raise to Medium when fps stays near 60.</p>
+          <p class="lock" id="quality-hint">Default Medium (laptop visual). FrameGuard cuts post under hitch. Low is the freeze button.</p>
           <p class="eyebrow" style="margin-top:18px">Balance</p>
           <div id="balance-presets" class="quality-presets">
             ${BALANCE_PROFILES.map((id) => `<button type="button" class="hud-btn" data-balance="${id}">${id === "Legacy" ? "Legacy" : "Worldbreaker v1"}</button>`).join("")}

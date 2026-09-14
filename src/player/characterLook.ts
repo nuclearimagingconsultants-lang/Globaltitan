@@ -1,5 +1,6 @@
 import * as THREE from "three";
-import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
+import { LOOK_BUDGET } from "../world/lookBudget";
+import { makeClothWeave } from "../world/textures";
 
 /** Saturated default Brute. Red radiance is layered on this, not a form swap. */
 export const SAVAGE_GREEN = 0x2a7a38; // 2008 film olive — denser, less toy
@@ -9,6 +10,7 @@ export const RADIANCE_RED = 0xff220c;
 let poreMap: THREE.CanvasTexture | null = null;
 let normalMap: THREE.CanvasTexture | null = null;
 let roughMap: THREE.CanvasTexture | null = null;
+let clothMap: THREE.CanvasTexture | null = null;
 let coronaTex: THREE.CanvasTexture | null = null;
 let envMap: THREE.Texture | null = null;
 
@@ -17,7 +19,7 @@ function hash(n: number): number {
   return x - Math.floor(x);
 }
 
-function buildPoreCanvas(kind: "albedo" | "normal" | "rough", size = 256): HTMLCanvasElement {
+function buildPoreCanvas(kind: "albedo" | "normal" | "rough", size = LOOK_BUDGET.skinMapSize): HTMLCanvasElement {
   const c = document.createElement("canvas");
   c.width = size;
   c.height = size;
@@ -28,22 +30,23 @@ function buildPoreCanvas(kind: "albedo" | "normal" | "rough", size = 256): HTMLC
     for (let x = 0; x < size; x++) {
       const i = (y * size + x) * 4;
       const n =
-        hash(x * 0.17 + y * 1.31) * 0.55 + hash(x * 0.41 + y * 0.23) * 0.3 + hash(x * 2.1 + y * 1.7) * 0.15;
-      const wrinkle = Math.sin(y * 0.22) * Math.sin(x * 0.09) * 0.12;
+        hash(x * 0.17 + y * 1.31) * 0.45 + hash(x * 0.41 + y * 0.23) * 0.32 + hash(x * 2.1 + y * 1.7) * 0.23;
+      const wrinkle = Math.sin(y * 0.19) * Math.sin(x * 0.07) * 0.14;
+      const pore = hash(x * 3.7 + y * 4.1) > 0.82 ? 0.18 : 0;
       if (kind === "normal") {
-        const nx = (hash(x * 0.9 + y * 0.2) - 0.5) * 0.55;
-        const ny = (hash(x * 0.2 + y * 0.9) - 0.5) * 0.55;
+        const nx = (hash(x * 0.9 + y * 0.2) - 0.5) * 0.42 + (hash(x + 1) - hash(x - 1)) * 0.12;
+        const ny = (hash(x * 0.2 + y * 0.9) - 0.5) * 0.42 + (hash(y + 1) - hash(y - 1)) * 0.12;
         d[i] = Math.floor((nx + 0.5) * 255);
         d[i + 1] = Math.floor((ny + 0.5) * 255);
         d[i + 2] = 255;
         d[i + 3] = 255;
       } else if (kind === "rough") {
-        const r = 118 + n * 90 + wrinkle * 40;
-        d[i] = d[i + 1] = d[i + 2] = Math.max(70, Math.min(210, r));
+        const r = 132 + n * 70 + wrinkle * 36 + pore * 40;
+        d[i] = d[i + 1] = d[i + 2] = Math.max(88, Math.min(200, r));
         d[i + 3] = 255;
       } else {
-        const v = 210 + n * 28 + wrinkle * 18;
-        d[i] = d[i + 1] = d[i + 2] = Math.max(160, Math.min(255, v));
+        const v = 196 + n * 32 + wrinkle * 16 - pore * 30;
+        d[i] = d[i + 1] = d[i + 2] = Math.max(140, Math.min(245, v));
         d[i + 3] = 255;
       }
     }
@@ -55,7 +58,8 @@ function buildPoreCanvas(kind: "albedo" | "normal" | "rough", size = 256): HTMLC
 function tex(kind: "albedo" | "normal" | "rough"): THREE.CanvasTexture {
   const t = new THREE.CanvasTexture(buildPoreCanvas(kind));
   t.wrapS = t.wrapT = THREE.RepeatWrapping;
-  t.repeat.set(3.2, 3.2);
+  t.repeat.set(2.6, 2.6);
+  t.anisotropy = 4;
   t.colorSpace = kind === "albedo" ? THREE.SRGBColorSpace : THREE.NoColorSpace;
   t.needsUpdate = true;
   return t;
@@ -66,6 +70,11 @@ function skinMaps(): { map: THREE.CanvasTexture; normalMap: THREE.CanvasTexture;
   normalMap ??= tex("normal");
   roughMap ??= tex("rough");
   return { map: poreMap, normalMap, roughnessMap: roughMap };
+}
+
+function clothTex(): THREE.CanvasTexture {
+  clothMap ??= makeClothWeave(LOOK_BUDGET.clothMapSize);
+  return clothMap;
 }
 
 function coronaTexture(): THREE.CanvasTexture {
@@ -87,81 +96,87 @@ function coronaTexture(): THREE.CanvasTexture {
   return coronaTex;
 }
 
-/** Photoreal skin: roughness/metalness/clearcoat/sheen SSS stand-in. */
+/** Photoreal skin: roughness/metalness/clearcoat/sheen SSS stand-in. No transmission (3050 freeze). */
 export function titanSkin(color: number): THREE.MeshPhysicalMaterial {
   const maps = skinMaps();
-  // Movie green look without transmission SSS — that froze RTX 3050 WebGL
   return new THREE.MeshPhysicalMaterial({
     color,
     map: maps.map,
     normalMap: maps.normalMap,
-    normalScale: new THREE.Vector2(1.15, 1.15),
+    normalScale: new THREE.Vector2(0.72, 0.72),
     roughnessMap: maps.roughnessMap,
-    roughness: 0.52,
-    metalness: 0.02,
-    clearcoat: 0.12,
-    clearcoatRoughness: 0.4,
-    sheen: 0.55,
-    sheenColor: new THREE.Color(color).multiplyScalar(0.5),
-    sheenRoughness: 0.45,
+    roughness: 0.62,
+    metalness: 0.0,
+    clearcoat: 0.06,
+    clearcoatRoughness: 0.55,
+    sheen: 0.72,
+    sheenColor: new THREE.Color(color).multiplyScalar(0.62),
+    sheenRoughness: 0.52,
     iridescence: 0,
     emissive: 0x000000,
     emissiveIntensity: 0,
-    envMapIntensity: 0.95,
+    envMapIntensity: 0.7,
+    transmission: 0,
   });
 }
 
 export function humanSkin(): THREE.MeshPhysicalMaterial {
   const maps = skinMaps();
   return new THREE.MeshPhysicalMaterial({
-    color: 0xc9a07c,
+    color: 0xc4a07a,
     map: maps.map,
     normalMap: maps.normalMap,
-    normalScale: new THREE.Vector2(0.4, 0.4),
+    normalScale: new THREE.Vector2(0.28, 0.28),
     roughnessMap: maps.roughnessMap,
-    roughness: 0.44,
-    metalness: 0.02,
-    clearcoat: 0.16,
-    clearcoatRoughness: 0.5,
-    sheen: 0.45,
+    roughness: 0.58,
+    metalness: 0.0,
+    clearcoat: 0.08,
+    clearcoatRoughness: 0.62,
+    sheen: 0.55,
     sheenColor: new THREE.Color(0xc08060),
-    sheenRoughness: 0.55,
-    envMapIntensity: 0.8,
+    sheenRoughness: 0.6,
+    transmission: 0,
+    envMapIntensity: 0.55,
   });
 }
 
 export function clothMat(color: number, shiny = false): THREE.MeshPhysicalMaterial {
   return new THREE.MeshPhysicalMaterial({
     color,
-    roughness: shiny ? 0.28 : 0.62,
-    metalness: shiny ? 0.22 : 0.04,
-    clearcoat: shiny ? 0.35 : 0.06,
-    clearcoatRoughness: 0.5,
-    sheen: shiny ? 0.1 : 0.35,
+    map: clothTex(),
+    roughness: shiny ? 0.34 : 0.74,
+    metalness: shiny ? 0.12 : 0.02,
+    clearcoat: shiny ? 0.18 : 0.02,
+    clearcoatRoughness: 0.62,
+    sheen: shiny ? 0.12 : 0.48,
     sheenColor: new THREE.Color(color),
-    envMapIntensity: 0.7,
+    sheenRoughness: 0.7,
+    transmission: 0,
+    envMapIntensity: 0.45,
   });
 }
 
 export function hairMat(color: number): THREE.MeshPhysicalMaterial {
   return new THREE.MeshPhysicalMaterial({
     color,
-    roughness: 0.48,
-    metalness: 0.12,
-    sheen: 0.4,
-    sheenColor: new THREE.Color(color).multiplyScalar(1.2),
-    envMapIntensity: 0.55,
+    roughness: 0.52,
+    metalness: 0.08,
+    sheen: 0.48,
+    sheenColor: new THREE.Color(color).multiplyScalar(1.15),
+    transmission: 0,
+    envMapIntensity: 0.4,
   });
 }
 
 export function eyeMat(color: number, glossy = true): THREE.MeshPhysicalMaterial {
   return new THREE.MeshPhysicalMaterial({
     color,
-    roughness: glossy ? 0.08 : 0.2,
-    metalness: 0.05,
+    roughness: glossy ? 0.08 : 0.22,
+    metalness: 0.04,
     clearcoat: 1,
-    clearcoatRoughness: 0.08,
-    envMapIntensity: 1.1,
+    clearcoatRoughness: 0.1,
+    transmission: 0,
+    envMapIntensity: 0.85,
   });
 }
 
@@ -190,10 +205,10 @@ export type HeroLights = {
 };
 
 export function makeHeroLights(): HeroLights {
-  const key = new THREE.SpotLight(0xfff0d8, 3.6, 40, 0.78, 0.4, 1.05);
+  const key = new THREE.SpotLight(0xfff0d8, 2.8, 40, 0.78, 0.4, 1.05);
   key.position.set(3.2, 6.4, 4.2);
   key.castShadow = false;
-  const fill = new THREE.PointLight(0x9ec0ff, 1.05, 26, 1.3);
+  const fill = new THREE.PointLight(0x9ec0ff, 0.85, 26, 1.3);
   fill.position.set(-3.4, 3.2, 1.2);
   const rim = new THREE.PointLight(0xff2a10, 0, 16, 1.6);
   rim.position.set(0.2, 3.8, -3.6);
@@ -202,22 +217,35 @@ export function makeHeroLights(): HeroLights {
   return { key, fill, rim, chest };
 }
 
+/** Outdoor IBL stand-in (sky + ground). RoomEnvironment reads as indoor plastic. */
 export function bindHeroEnvMap(renderer: THREE.WebGLRenderer, mats: THREE.MeshPhysicalMaterial[]): void {
   if (!envMap) {
     const pmrem = new THREE.PMREMGenerator(renderer);
-    envMap = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    const envScene = new THREE.Scene();
+    envScene.add(new THREE.HemisphereLight(0xc8dcff, 0x3a3028, 1.35));
+    const sky = new THREE.Mesh(
+      new THREE.SphereGeometry(12, 16, 12),
+      new THREE.MeshBasicMaterial({ color: 0x88aed4, side: THREE.BackSide }),
+    );
+    envScene.add(sky);
+    const ground = new THREE.Mesh(new THREE.CircleGeometry(10, 16), new THREE.MeshBasicMaterial({ color: 0x4a4a40 }));
+    ground.rotation.x = -Math.PI / 2;
+    ground.position.y = -1.2;
+    envScene.add(ground);
+    envMap = pmrem.fromScene(envScene, 0.06).texture;
     pmrem.dispose();
   }
   for (const m of mats) {
     m.envMap = envMap;
-    m.envMapIntensity = 1.2;
+    m.envMapIntensity = 0.72;
+    m.transmission = 0;
     m.needsUpdate = true;
   }
 }
 
-/** Rage + Gamma â†’ red corona strength. Low = rim. Meltdown = strong bloom stand-in. */
+/** Rage + Gamma → red corona strength. Low = rim. Meltdown = strong bloom stand-in. */
 export function radianceStrength(rage: number, gamma: number, raging: boolean, meltdown: boolean): number {
   const heat = (Math.max(0, rage) / 100) * 0.58 + (Math.max(0, gamma) / 100) * 0.42;
   const spike = raging || meltdown ? 1.4 : 1;
-  return Math.min(0.55, 0.08 + heat * 0.55 * spike); // movie red corona, green still readable
+  return Math.min(0.55, 0.08 + heat * 0.55 * spike);
 }

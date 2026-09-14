@@ -1,19 +1,19 @@
 ﻿# Laptop freeze notes (RTX 3050)
 
 ## Use now
-1. Hard refresh: Ctrl+Shift+R on http://127.0.0.1:5475/#play
-2. Esc → Settings → Quality → **Low** (or Auto)
-3. Avoid High / Cinematic on this laptop with Maps overlay
+1. `npm install && npm run dev` → http://127.0.0.1:47331/#play
+2. Esc → Settings → Quality → **Medium** (visual target) or **Low** if the frame hitchs
+3. FrameGuard will cut bloom/SSAO and drop scale if frames stay over 18 ms
+
+## Freeze pack (keep)
+- **No MeshPhysical `transmission` / SSS** — that stalled this laptop
+- Dummy shader prewarm; never compile the live NY scene
+- Pooled smash / debris; skip under hitch
+- FrameGuard: 6 slow frames → scale step, load 220 m, `cutPost`
 
 ## Hotspots (Three.js)
-- `Game.ts` render loop + Maps overlay compositing
-- `PostStack.ts` bloom/SSAO (High+)
+- `Game.ts` render loop + post (`PostStack.ts` bloom/SSAO on High+)
 - `ChunkStreamer` / lot pump spikes
 - `SmashFx` / `DebrisPool` under hitch (FrameGuard skips)
-- Overlay/Minimap canvas DPR (now capped at 1)
-
-## Applied local patches
-- FrameGuard: trip after **10** slow frames (was 18); scale floor **0.55**; bigger steps
-- Low preset: scale 0.55, load 180 m, debris 80, particles 6, far 180
-- Overlay + Minimap DPR ≤ 1
-- Save: High/Cinematic snap to Low once on load
+- Overlay/Minimap canvas DPR (capped at 1)
+- High/Cinematic shadows (1024 PCF) — leave those off on this GPU

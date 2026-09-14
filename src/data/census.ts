@@ -79,13 +79,13 @@ export function nearbyPeople(cityId: string, radiusM: number, hour: number): num
 /** Instanced sidewalk bodies. Never the census total. */
 export function crowdCap(cityId: string, overloaded: boolean): number {
   const dense = perKm2(cityId);
-  const n = dense > 8000 ? 40 : dense > 3000 ? 28 : dense > 1200 ? 20 : 14;
+  const n = dense > 8000 ? 48 : dense > 3000 ? 32 : dense > 1200 ? 22 : 16;
   return overloaded ? Math.min(12, n) : n;
 }
 
 export function trafficCount(cityId: string): number {
   const dense = perKm2(cityId);
-  return dense > 8000 ? 10 : dense > 3000 ? 8 : dense > 1200 ? 6 : 5;
+  return dense > 8000 ? 14 : dense > 3000 ? 10 : dense > 1200 ? 8 : 6;
 }
 
 export function formatPop(n: number): string {

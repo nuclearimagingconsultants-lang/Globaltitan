@@ -135,7 +135,7 @@ export class CrimeWaveBoard {
   missionLine(save: CrimeWaveSaveSlice): string | null {
     const objIdx = this.objectiveIndex; void objIdx;
     if (!save.activeQuestId?.startsWith("cw-")) return null;
-    const def = crimeWaveById(save.activeQuestId);
+    const def = this.active ?? crimeWaveById(save.activeQuestId);
     if (!def) return null;
     const step = def.objectives[Math.min(save.questProgress, def.objectives.length - 1)] ?? def.blurb;
     return `Crime Wave · ${def.title}: ${save.questProgress}/${def.objectives.length} — ${step}`;

@@ -25,8 +25,8 @@ import { SmashFx } from "../systems/SmashFx";
 import { Traffic } from "../systems/Traffic";
 import { Overlay, type StreetAction } from "../ui/Overlay";
 import { CityWorld } from "../world/CityWorld";
-import { followStreet, compassLabel, geoStub, loadStreetPack } from "../world/streetPack";
-import { cityMeshEnabled } from "../world/cityPath";
+import { SkyDome } from "../world/skyDome";
+import { followStreet, compassLabel } from "../world/streetPack";
 import {
   hidePlayfield,
   mountPlayfieldMap,
@@ -64,17 +64,18 @@ import { ComicSystem, markComicCleared, markComicFound, comicById } from "../sys
 import { CrowdSystem } from "../systems/CrowdSystem";
 import { LoreContacts } from "../systems/LoreContacts";
 import { pullWeather, type WeatherSnap } from "../systems/Weather";
-import { CrimeWaveBoard } from "../systems/CrimeWaveBoard";
+import { CrimeWaveBoard, type CrimeWaveBoardHooks } from "../systems/CrimeWaveBoard";
 import { DesertWarzone } from "../systems/DesertWarzone";
 import { KaijuPit } from "../systems/KaijuPit";
 
 export class Game {
   private renderer: THREE.WebGLRenderer;
   private scene = new THREE.Scene();
-  private camera = new THREE.PerspectiveCamera(72, 1, 0.2, 480);
+  private camera = new THREE.PerspectiveCamera(72, 1, 0.2, 640);
   private hemi = new THREE.HemisphereLight(0xeef4fa, 0x7a7468, 2.15);
-  private sun = new THREE.DirectionalLight(0xffeed0, 2.7);
+  private sun = new THREE.DirectionalLight(0xffeed0, 2.4);
   private rim = new THREE.DirectionalLight(0xb4dcff, 0.55);
+  private sky = new SkyDome();
   private clock = new THREE.Clock();
   private hudTimer = 0;
   private input: Input;
@@ -149,6 +150,7 @@ export class Game {
   private jobCrimeId = -1;
   private streetT = 0;
   private dropping = false;
+  private cwSmashGate = 0;
 
   private canvas: HTMLCanvasElement;
 
@@ -164,14 +166,17 @@ export class Game {
       premultipliedAlpha: false,
     });
     this.renderer.setPixelRatio(Math.min(1, window.devicePixelRatio || 1));
-    this.renderer.setClearColor(0x000000, 0);
+    this.renderer.setClearColor(0x8aa8c4, 1);
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 1.12;
+    this.renderer.toneMappingExposure = 1.08;
     this.renderer.shadowMap.enabled = false;
-    this.scene.add(this.hemi, this.sun, this.sun.target, this.rim);
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    this.scene.add(this.hemi, this.sun, this.sun.target, this.rim, this.sky.mesh);
     this.sun.position.set(48, 82, 28);
     this.sun.castShadow = false;
+    this.sun.shadow.bias = -0.0008;
+    this.sun.shadow.normalBias = 0.04;
     this.rim.position.set(-36, 40, -48);
     this.rim.visible = false;
     this.sun.shadow.mapSize.set(1024, 1024);
@@ -204,6 +209,13 @@ export class Game {
     this.razor.bindSave(this.save);
     this.player.lastTitan = this.save.lastTitan;
     this.player.enableFilmLook(this.renderer);
+    this.player.group.traverse((obj) => {
+      const mesh = obj as THREE.Mesh;
+      if (mesh.isMesh) {
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+      }
+    });
     this.post = new PostStack(this.renderer, this.scene, this.camera);
     this.applyQuality();
     this.applySavedControls();
@@ -617,15 +629,19 @@ export class Game {
     this.overlay.renderQuests(this.save);
   }
 
+  private crimeWaveHooks(): CrimeWaveBoardHooks {
+    return {
+      toast: (m) => this.pushToast(m),
+      grantXp: (n) => this.grantXp(n),
+      writeSave: () => writeSave(this.save),
+      enterPlay: () => this.enterPlay(),
+      travelTo: (cid) => this.travelTo(cid),
+    };
+  }
+
   private acceptQuest(id: string): void {
     if (id.startsWith("cw-")) {
-      this.crimeWave.accept(this.save, id, {
-        toast: (m) => this.pushToast(m),
-        grantXp: (n) => this.grantXp(n),
-        writeSave: () => writeSave(this.save),
-        enterPlay: () => this.enterPlay(),
-        travelTo: (cid) => this.travelTo(cid),
-      });
+      this.crimeWave.accept(this.save, id, this.crimeWaveHooks());
       return;
     }
     const def = questById(id);
@@ -641,6 +657,11 @@ export class Game {
   }
 
   private abandonQuest(): void {
+    if (this.save.activeQuestId?.startsWith("cw-")) {
+      this.crimeWave.abandon(this.save, this.crimeWaveHooks());
+      this.overlay.renderQuests(this.save);
+      return;
+    }
     this.save.activeQuestId = null;
     this.save.questProgress = 0;
     writeSave(this.save);
@@ -777,6 +798,7 @@ export class Game {
     this.beasts = new BestiarySystem();
 
     this.world = new CityWorld(city, null, { lite: false }); // null graph => buildBlocks city
+    this.world.setFarClip(QUALITY[this.save.settings.quality].farClip);
     this.overlay.noteWorld(city, graph, { x: this.world.playerSpawn.x, z: this.world.playerSpawn.z });
     this.world.applyAtmosphere(this.scene, this.hemi, this.sun, this.life.applyAtmosphereMix(this.save.life.hour));
     this.scene.add(this.world.group);
@@ -1062,15 +1084,25 @@ export class Game {
     const shadows = q.shadows && !cut && !maps;
     if (this.renderer.shadowMap.enabled !== shadows) this.renderer.shadowMap.enabled = shadows;
     this.sun.castShadow = shadows;
+    if (this.world && !maps) {
+      const p = this.player.position;
+      const dist = q.shadowDist;
+      this.sun.position.set(p.x + this.world.sunDir.x * dist, p.y + this.world.sunDir.y * dist, p.z + this.world.sunDir.z * dist);
+      this.sun.target.position.set(p.x, 0, p.z);
+      this.sun.target.updateMatrixWorld();
+      this.sky.follow(p.x, p.z);
+      this.sky.apply(this.world.theme, this.life.applyAtmosphereMix(this.save.life.hour), this.world.sunDir);
+    }
     if (maps) {
       this.renderer.autoClear = true;
       this.renderer.setClearColor(0x000000, 0);
       this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      this.renderer.toneMappingExposure = 1.14;
+      this.renderer.toneMappingExposure = 1.08;
       this.renderer.render(this.scene, this.camera);
       return;
     }
-    this.post.apply(q, rush, cut);
+    const night = this.life.applyAtmosphereMix(this.save.life.hour);
+    this.post.apply(q, rush, cut, night);
     if (!cut && (q.bloom || q.ssao || q.grade || (q.motionBlur && rush))) this.post.render();
     else this.renderer.render(this.scene, this.camera);
   }
@@ -1096,9 +1128,14 @@ export class Game {
     const q = QUALITY[this.save.settings.quality];
     this.camera.far = q.farClip;
     this.camera.updateProjectionMatrix();
+    this.sky.setRadius(q.farClip);
+    this.world?.setFarClip(q.farClip);
     this.renderer.shadowMap.enabled = q.shadows;
     this.sun.castShadow = q.shadows;
+    this.world?.setShadowCasters(q.shadows);
     const d = q.shadowDist;
+    const map = q.id === "cinematic" ? 1024 : q.id === "high" ? 1024 : 512;
+    this.sun.shadow.mapSize.set(map, map);
     this.sun.shadow.camera.near = 4;
     this.sun.shadow.camera.far = d + 80;
     this.sun.shadow.camera.left = -d;
@@ -1107,9 +1144,9 @@ export class Game {
     this.sun.shadow.camera.bottom = -d;
     this.sun.shadow.camera.updateProjectionMatrix();
     this.rim.visible = q.rim;
-    this.rim.intensity = q.rim ? 0.4 : 0;
-    this.renderer.toneMapping = q.grade ? THREE.ACESFilmicToneMapping : THREE.NoToneMapping;
-    this.renderer.toneMappingExposure = q.grade ? 1.08 : 1;
+    this.rim.intensity = q.rim ? 0.45 : 0;
+    this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    this.renderer.toneMappingExposure = q.grade ? 1.1 : 1.02;
     this.fx.cap = Math.floor(q.particleCap * this.guard.particleMul);
     this.debris.setCap(Math.floor(q.debrisCap * this.guard.particleMul));
     this.applyStreamRadii(q.loadM, q.unloadM);
@@ -1130,6 +1167,7 @@ export class Game {
       return;
     }
     this.input.tick(dt);
+    this.cwSmashGate = Math.max(0, this.cwSmashGate - dt);
     // Ces: right-click opens the pause / action menu
     if (this.input.consumeContextMenu()) {
       this.input.exitLock();
@@ -1419,6 +1457,10 @@ export class Game {
         this.noteQuest("wreck", buildings);
         this.save.wrecked += buildings;
         this.razor.noteWreck();
+      }
+      if (this.save.activeQuestId?.startsWith("cw-") && this.cwSmashGate <= 0 && (hits || buildings || cars || huntHit || hoodHit)) {
+        this.crimeWave.noteObjective(this.save, this.crimeWaveHooks());
+        this.cwSmashGate = 1.35;
       }
       this.director.noteSmash(kind === "clap" || kind === "ground", buildings);
       const razorHit = this.razor.applySmash(

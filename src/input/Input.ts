@@ -673,8 +673,8 @@ export class Input {
     const dy = e.movementY || e.clientY - this.dragStartY;
     if (Math.hypot(e.clientX - this.dragStartX, e.clientY - this.dragStartY) > 4) this.dragMoved = true;
     // Drag up = look up / pull camera so more of Hulk is in frame (invert Y feels natural).
-    this.mouseDx += e.movementX;
-    this.mouseDy += e.movementY;
+    this.mouseDx += dx;
+    this.mouseDy += dy;
     this.dragStartX = e.clientX;
     this.dragStartY = e.clientY;
   };
