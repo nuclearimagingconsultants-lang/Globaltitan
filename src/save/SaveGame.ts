@@ -62,7 +62,7 @@ export function defaultSave(): SaveData {
       sensitivity: 0.22,
       muted: false,
       binds: {},
-      quality: "low",
+      quality: "medium",
       legendOpen: false,
       balanceProfile: "Legacy",
       controlFeel: "default",
@@ -102,7 +102,7 @@ function migrate(parsed: SaveData): SaveData {
     sensitivity: 0.22,
     muted: false,
     binds: {},
-    quality: "low",
+    quality: "medium",
     legendOpen: false,
     balanceProfile: "Legacy",
     controlFeel: "default",
@@ -112,12 +112,17 @@ function migrate(parsed: SaveData): SaveData {
   parsed.settings.sensitivity = Math.min(0.6, Math.max(0.06, parsed.settings.sensitivity));
   parsed.settings.binds = parsed.settings.binds ?? {};
   if (parsed.settings.legendOpen === undefined) {
-    if (parsed.settings.quality === "medium") parsed.settings.quality = "low" /* cesForceLowForFreeze */; // city readable on 3050 // ces asked High gfx
     parsed.settings.legendOpen = false;
   }
-  parsed.settings.quality = parsed.settings.quality ?? "high";
-  // cesForceHigh
-  parsed.settings.quality = "low" /* cesForceLowForFreeze */; // city readable on 3050
+  parsed.settings.quality = parsed.settings.quality ?? "medium";
+  try {
+    if (!localStorage.getItem("titan-streets-look-v1")) {
+      localStorage.setItem("titan-streets-look-v1", "1");
+      if (parsed.settings.quality === "low") parsed.settings.quality = "medium";
+    }
+  } catch {
+    /* ignore quota / private mode */
+  }
   parsed.settings.legendOpen = Boolean(parsed.settings.legendOpen);
   parsed.settings.balanceProfile = isBalanceProfile(parsed.settings.balanceProfile)
     ? parsed.settings.balanceProfile

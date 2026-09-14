@@ -10,7 +10,9 @@ export type LifeSite = {
   pos: THREE.Vector3;
 };
 import { loadAsphalt, loadBrick } from "./loadMaps";
+import { fogRange, LOOK_BUDGET } from "./lookBudget";
 import { createRng, hashString, irange, range } from "./rng";
+import { buildStreetDressing } from "./streetDressing";
 import { themeFor, type CityTheme } from "./themes";
 import { makeFacade, makeGlass, makeGrass, makeSidewalk, std } from "./textures";
 import { chunkKey, type SmashDelta } from "./streaming";
@@ -135,6 +137,8 @@ export class CityWorld {
   private readonly hemiNight = new THREE.Color(0x4a5870);
   private readonly sunNight = new THREE.Color(0x6a80b0);
   private weather: AtmosMix | null = null;
+  farClip = 640;
+  readonly sunDir = new THREE.Vector3(0.38, 0.88, 0.22);
   private lotJobs: LotJob[] = [];
   private lotCursor = 0;
   private lotKit: {
@@ -168,6 +172,13 @@ export class CityWorld {
       this.buildLamps(rng);
       this.buildLandmark(rng);
       this.buildStreetLife(rng);
+      buildStreetDressing(this.group, this.theme, city.id, {
+        grid: GRID,
+        cell: CELL,
+        block: BLOCK,
+        road: ROAD,
+        extent: this.extent,
+      });
       this.buildLifeSites();
       this.buildNightBus();
       this.collectSpawns(rng);
@@ -191,14 +202,13 @@ export class CityWorld {
 
   applyAtmosphere(scene: THREE.Scene, hemi: THREE.HemisphereLight, sun: THREE.DirectionalLight, nightAmt = 0): void {
     if (this.mapsLite) {
-      scene.background = null;
+      scene.background = this.skyCol.setHex(this.theme.sky);
       scene.fog = null;
       hemi.intensity = 0.92;
       hemi.color.setHex(0xe8eef4);
       hemi.groundColor.setHex(0x6a6860);
       sun.intensity = 0.55;
       sun.color.setHex(0xffeedd);
-      sun.castShadow = false;
       return;
     }
     const now = performance.now();
@@ -211,24 +221,37 @@ export class CityWorld {
     this.skyCol.setHex(t.sky).lerp(this.nightSky, night);
     const fogMul = wx?.fogMul ?? 0;
     const sunMul = wx?.sunMul ?? 1;
-    const near = THREE.MathUtils.lerp(t.fogNear ?? 110, 36, night) * (1 - fogMul * 0.35);
-    const far = THREE.MathUtils.lerp(t.fogFar ?? 420, 170, night) * (1 - fogMul * 0.32);
+    const range = fogRange(this.farClip, night, fogMul);
     if (!this.fogObj) {
-      this.fogObj = new THREE.Fog(this.fogCol, near, far);
+      this.fogObj = new THREE.Fog(this.fogCol, range.near, range.far);
     } else {
       this.fogObj.color.copy(this.fogCol);
-      this.fogObj.near = near;
-      this.fogObj.far = far;
+      this.fogObj.near = range.near;
+      this.fogObj.far = range.far;
     }
     scene.fog = this.fogObj;
     scene.background = this.skyCol;
-    hemi.intensity = THREE.MathUtils.lerp(2.05, 0.78, night) * (0.7 + 0.3 * sunMul);
+    hemi.intensity = THREE.MathUtils.lerp(1.55, 0.55, night) * (0.75 + 0.25 * sunMul);
     hemi.color.setHex(t.hemiSky).lerp(this.hemiNight, night);
     hemi.groundColor.setHex(t.hemiGround);
     sun.color.setHex(t.sunColor).lerp(this.sunNight, night);
-    sun.intensity = THREE.MathUtils.lerp(Math.max(2.55, t.sunIntensity * 1.55), 0.4, night) * sunMul;
-    sun.position.set(t.sunDir[0] * 90, t.sunDir[1] * 90, t.sunDir[2] * 90);
-    sun.castShadow = false;
+    sun.intensity = THREE.MathUtils.lerp(Math.max(2.2, t.sunIntensity * 1.35), 0.38, night) * sunMul;
+    this.sunDir.set(t.sunDir[0], t.sunDir[1], t.sunDir[2]).normalize();
+    sun.position.copy(this.sunDir).multiplyScalar(90);
+  }
+
+  setFarClip(n: number): void {
+    this.farClip = n;
+    this.atmosT = 0;
+  }
+
+  setShadowCasters(on: boolean): void {
+    this.group.traverse((obj) => {
+      const mesh = obj as THREE.Mesh;
+      if (!mesh.isMesh) return;
+      mesh.receiveShadow = true;
+      mesh.castShadow = on && !mesh.userData.rubble && !mesh.userData.noShadow;
+    });
   }
 
   nearestSite(from: THREE.Vector3, max = 6.4): LifeSite | null {
@@ -616,12 +639,13 @@ export class CityWorld {
   private buildGround(): void {
     const grass = makeGrass();
     const ground = new THREE.Mesh(
-      new THREE.PlaneGeometry(GRID * CELL + 90, GRID * CELL + 90),
+      new THREE.PlaneGeometry(GRID * CELL + 420, GRID * CELL + 420),
       std(grass, this.theme.grass),
     );
     ground.rotation.x = -Math.PI / 2;
     ground.position.y = -0.03;
     ground.receiveShadow = true;
+    ground.userData.noShadow = true;
     this.add(ground);
   }
 
@@ -654,6 +678,8 @@ export class CityWorld {
       this.add(v);
     }
 
+    this.buildRoadMarks(half);
+
     for (let iz = 0; iz < GRID; iz++) {
       for (let ix = 0; ix < GRID; ix++) {
         if (this.isPlaza(ix, iz)) continue;
@@ -668,6 +694,43 @@ export class CityWorld {
     }
   }
 
+  private buildRoadMarks(half: number): void {
+    const paint = new THREE.MeshBasicMaterial({ color: 0xcfc8b4 });
+    const geo = new THREE.BoxGeometry(1, 1, 1);
+    const cap = 1400;
+    const dashes = new THREE.InstancedMesh(geo, paint, cap);
+    dashes.count = 0;
+    const dummy = new THREE.Object3D();
+    const put = (x: number, z: number, sx: number, sz: number) => {
+      if (dashes.count >= cap) return;
+      dummy.position.set(x, 0.03, z);
+      dummy.scale.set(sx, 0.02, sz);
+      dummy.rotation.set(0, 0, 0);
+      dummy.updateMatrix();
+      dashes.setMatrixAt(dashes.count++, dummy.matrix);
+    };
+    for (let i = 0; i < GRID; i++) {
+      const c = -half + i * CELL + BLOCK + ROAD / 2;
+      for (let k = -12; k <= 12; k++) {
+        put(k * 9, c, 0.16, 2.4);
+        put(c, k * 9, 2.4, 0.16);
+      }
+    }
+    for (let iz = 0; iz < GRID; iz++) {
+      for (let ix = 0; ix < GRID; ix++) {
+        const x = -half + ix * CELL + BLOCK + ROAD / 2;
+        const z = -half + iz * CELL + BLOCK + ROAD / 2;
+        for (let n = -3; n <= 3; n++) {
+          put(x + n * 0.52, z, 0.32, 3.2);
+          put(x, z + n * 0.52, 3.2, 0.32);
+        }
+      }
+    }
+    dashes.instanceMatrix.needsUpdate = true;
+    dashes.userData.noShadow = true;
+    this.add(dashes);
+  }
+
   private isPlaza(ix: number, iz: number): boolean {
     return ix === Math.floor(GRID / 2) && iz === Math.floor(GRID / 2);
   }
@@ -680,9 +743,11 @@ export class CityWorld {
       makeFacade(c, this.theme.window, this.theme.night, hashString(`${this.city.id}:${i}`)),
     );
     const officeMats = facades.map((f) => std(f, 0xffffff));
-    const brickMat = new THREE.MeshLambertMaterial({
+    const brickMat = new THREE.MeshStandardMaterial({
       map: brickMap,
       color: 0xddd0c4,
+      roughness: 0.82,
+      metalness: 0.02,
     });
     const glass = makeGlass(this.theme.window, this.theme.night);
     const corniceMat = new THREE.MeshLambertMaterial({ color: 0xcfc8bc });
@@ -691,7 +756,7 @@ export class CityWorld {
     const bodyGeo = new THREE.BoxGeometry(1, 1, 1);
 
     const dummy = new THREE.Object3D();
-    const max = GRID * GRID * 5;
+    const max = GRID * GRID * 12;
     const towers = officeMats.map((mat) => {
       const inst = new THREE.InstancedMesh(bodyGeo, mat, max);
       inst.count = 0;
@@ -763,14 +828,19 @@ export class CityWorld {
         if (this.isPlaza(ix, iz)) continue;
         const originX = -half + ix * CELL;
         const originZ = -half + iz * CELL;
-          const lots = irange(rng, 1, 2);
-        for (let n = 0; n < lots; n++) {
-          const inset = 1.4 + rng() * 1.1;
-          const w = range(rng, 7.2, BLOCK / 2 - 0.6);
-          const d = range(rng, 7.2, BLOCK / 2 - 0.6);
-          const h = this.heightFor(rng, ix, iz);
-          const lx = originX + inset + rng() * Math.max(0.4, BLOCK - w - inset * 2);
-          const lz = originZ + inset + rng() * Math.max(0.4, BLOCK - d - inset * 2);
+        const cellW = (BLOCK - 2.2) / 2;
+        const cellD = (BLOCK - 2.2) / 2;
+        const want = irange(rng, LOOK_BUDGET.lotsMin, LOOK_BUDGET.lotsMax);
+        let n = 0;
+        for (let gy = 0; gy < 2 && n < want; gy++) {
+          for (let gx = 0; gx < 2 && n < want; gx++) {
+            n += 1;
+          const inset = 0.35 + rng() * 0.35;
+          const w = cellW - inset * 2;
+          const d = cellD - inset * 2;
+          const h = this.heightFor(rng, ix, iz) * (0.72 + rng() * 0.38);
+          const lx = originX + 1.1 + gx * cellW + inset;
+          const lz = originZ + 1.1 + gy * cellD + inset;
           const cx = lx + w / 2;
           const cz = lz + d / 2;
           const brick = rng() < 0.38;
@@ -830,6 +900,7 @@ export class CityWorld {
             maxZ: cz + d / 2,
             height: h + 4,
           });
+          }
         }
       }
     }
@@ -1306,6 +1377,7 @@ export class CityWorld {
     ground.rotation.x = -Math.PI / 2;
     ground.position.y = -0.03;
     ground.receiveShadow = true;
+    ground.userData.noShadow = true;
     this.add(ground);
 
     this.buildGraphRoads(graph);

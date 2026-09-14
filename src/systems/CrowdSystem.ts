@@ -42,7 +42,7 @@ export class CrowdSystem {
     const row = censusOf(world.city.id);
     this.cityPop = row.pop;
     this.perKm2 = perKm2(world.city.id);
-    const cap = 40;
+    const cap = 48;
     const mat = new THREE.MeshLambertMaterial({ color: 0xc4b49a });
     this.mesh = new THREE.InstancedMesh(BODY, mat, cap);
     this.mesh.count = 0;
