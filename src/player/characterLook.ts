@@ -232,7 +232,7 @@ export function bindHeroEnvMap(renderer: THREE.WebGLRenderer, mats: THREE.MeshPh
     ground.rotation.x = -Math.PI / 2;
     ground.position.y = -1.2;
     envScene.add(ground);
-    envMap = pmrem.fromScene(envScene, 0.06).texture;
+    envMap = pmrem.fromScene(envScene, 0.02).texture;
     pmrem.dispose();
   }
   for (const m of mats) {
